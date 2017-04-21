@@ -1,0 +1,18 @@
+<svg width="8" height="13" viewBox="0 0 8 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+<title>icon (3)</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(221 -175)" figma:type="canvas">
+<g id="icon (3)" figma:type="frame">
+<g id="Group" figma:type="frame">
+<g id="c1 ray" figma:type="frame">
+<g id="Vector" figma:type="vector">
+<use xlink:href="#path0_fill" transform="translate(-221 175)" fill="#BCBCBC"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 7.20907 0L 9.68812e-08 7.39175L 2.67392 7.39175L 0.618594 13L 8 5.60778L 5.32562 5.60778L 7.20907 0Z"/>
+</defs>
+</svg>

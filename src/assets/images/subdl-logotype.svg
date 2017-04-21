@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="59" height="20" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:figma="http://www.figma.com/figma/ns">
+  <desc>
+    Created using Figma
+  </desc>
+  <use xlink:href="#a" transform="translate(0 -4)" figma:type="text"/>
+  <defs>
+    <path id="a" d="M10.56 9.3H7.5V7.45H3.84V9.3l6.72 7.98v5.5L9.36 24H2L.78 22.77v-3.64h3.06v1.82H7.5v-1.82l-6.72-8v-5.5L2.02 4.4h7.33l1.2 1.23V9.3zm9.16-4.9h3.05v18.4l-1.2 1.2H14.2l-1.23-1.2V4.4h3.05v16.55h3.7V4.4zM35 5.63V13l-1.22 1.2 1.2 1.2v7.37L33.8 24h-8.6V4.4h8.6L35 5.63zm-3.07 1.85h-3.66V13h3.66V7.48zm-3.66 13.44h3.66v-4.9h-3.66v4.9zM46.03 4.4l1.17 1.23v17.14L46.03 24H37.4V4.4h8.63zm-1.88 16.55V7.48h-3.67v13.47h3.67zm8.52 0h5.43V24h-8.48V4.4h3.05v16.55z"/>
+  </defs>
+</svg>

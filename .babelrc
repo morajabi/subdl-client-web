@@ -1,0 +1,22 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "node": "current",
+        "browsers": ["last 2 versions"],
+        "chrome": 52,
+        "edge": 12,
+        "firefox": 45,
+        "safari": 8,
+        "ie": 10
+      }
+    }],
+    "react",
+    "flow"
+  ],
+  "plugins": [
+    "transform-es2015-destructuring", 
+    "transform-object-rest-spread"
+  ]
+}

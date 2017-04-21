@@ -1,0 +1,19 @@
+[ignore]
+.*/styled-components/src/.*
+.*/styled-components/lib/native/.*
+
+[include]
+./src
+
+[libs]
+flow-typed
+
+.*/styled-components/flow-typed/*.js
+
+node_modules/styled-components/flow-typed/react-native.js
+# node_modules/styled-components/flow-typed/lodash_v4.x.x.js
+node_modules/styled-components/flow-typed/inline-style-prefixer_vx.x.x.js
+
+[options]
+suppress_type=$FlowIssue
+unsafe.enable_getters_and_setters=true
