@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Grade from 'grade-js';
 
 class Cover extends Component {
-  constructor(p) {
+  constructor(p: any) {
     super(p);
   }
 
