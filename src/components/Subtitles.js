@@ -29,7 +29,10 @@ const Subtitles = (props: any) => (
   <div {...props}>
     <MovieCover>
       <header>
-        <TopNav searchBar={false} currentColor />
+        <TopNav 
+          searchBar={false} 
+          currentColor={true}
+        />
       </header>
       <PaddedContainer>
         <Poster src={winterSoldierPoster} data-grade={true} />

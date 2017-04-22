@@ -7,6 +7,7 @@ import { map } from 'lodash';
 import { v4 } from 'uuid';
 
 import Container from './Container';
+import TopNav from './TopNav';
 import SearchBox from './SearchBox';
 import MovieItem from './MovieItem';
 import NoMatch from './NoMatch';
@@ -67,6 +68,9 @@ const PaddedNoMatch = styled(NoMatch)`
 
 const Search = () => (
   <div>
+    <header>
+      <TopNav searchBar={false} />
+    </header>
     <PaddedContainer>
       <Overdrive id="search-box8">
         <SearchBox />

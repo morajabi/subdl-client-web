@@ -6,6 +6,7 @@ import { media } from '../utils/styleUtils';
 import Overdrive from 'react-overdrive';
 
 import Container from './Container';
+import TopNav from './TopNav';
 import SearchBox from './SearchBox';
 import TrendingSuggestions from './TrendingSuggestions';
 
@@ -38,6 +39,9 @@ const Bold = styled.strong`
 
 const Home = () => (
   <div>
+    <header>
+      <TopNav searchBar={false} />
+    </header>
     <PaddedContainer>
       <Link to="/search"><Title><Bold>Find perfect subtitles</Bold> in any language for any movie</Title></Link>
       <Overdrive id="search-box">
