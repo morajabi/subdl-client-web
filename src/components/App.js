@@ -53,9 +53,6 @@ class App extends Component {
 
           return (
             <Main isHome={isHome}>
-              <header>
-                <TopNav searchBar={false} />
-              </header>
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
               <Route path="/subtitles" component={Subtitles} />

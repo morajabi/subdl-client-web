@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import Container from './Container';
+import TopNav from './TopNav';
 import Cover from './Cover';
 
-// import loganPoster from '../assets/images/demo/logan-poster.jpg';
-import loganPoster from '../assets/images/demo/winter-soldier-poster.jpg';
+import winterSoldierPoster from '../assets/images/demo/winter-soldier-poster.jpg';
 
 const PaddedContainer = styled(Container)`
-  padding-top: 60px;
+  padding-top: 70px;
 `;
 
 const MovieCover = styled(Cover)`
@@ -18,12 +18,21 @@ const MovieCover = styled(Cover)`
   background: #000;
 `;
 
+const Poster = styled.img`
+  max-width: 210px;
+  display: block;
+  box-shadow: 0 5px 9px rgba(0, 0, 0, .3)
+`;
+
 
 const Subtitles = (props: any) => (
   <div {...props}>
     <MovieCover>
+      <header>
+        <TopNav searchBar={false} currentColor />
+      </header>
       <PaddedContainer>
-        <img src={loganPoster} width="200px" />
+        <Poster src={winterSoldierPoster} data-grade={true} />
       </PaddedContainer>
     </MovieCover>
   </div>
