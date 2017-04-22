@@ -10,10 +10,10 @@ import SearchBox from './SearchBox';
 import TrendingSuggestions from './TrendingSuggestions';
 
 const PaddedContainer = styled(Container)`
-  padding-top: 115px;
+  padding-top: 155px;
 
   ${media.to.medium`
-    padding-top: 50px;  
+    padding-top: 100px;  
   `}
 `;
 

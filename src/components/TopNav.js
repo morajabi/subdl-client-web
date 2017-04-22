@@ -8,7 +8,7 @@ import logoType from '../assets/images/subdl-logotype.svg';
 
 const Wrapper = styled.div`
   width: 100%;
-  position: relative;
+  position: absolute;
   padding: 0 27px;
 `;
 

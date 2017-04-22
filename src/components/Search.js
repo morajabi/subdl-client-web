@@ -16,7 +16,7 @@ import arrivalPoster from '../assets/images/demo/arrival-poster.jpg';
 import winterSoldierPoster from '../assets/images/demo/winter-soldier-poster.jpg';
 
 const PaddedContainer = styled(Container)`
-  padding-top: 30px;
+  padding-top: 80px;
 `;
 
 const MovieList = styled.div`
