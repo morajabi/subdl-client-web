@@ -8,20 +8,21 @@ class Cover extends Component {
     super(p);
   }
 
+  img: any;
   wrapper: any;
   onImageLoad: Function;
 
   initGrade() {
-    Grade(this.wrapper);
+    Grade(this.wrapper, 'img[data-grade]');
   }
 
   componentDidMount() {
     if(this.wrapper) {
-      const img = this.wrapper.querySelector('img');
-      if (img.complete) {
+      this.img = this.wrapper.querySelector('img[data-grade]');
+      if (this.img.complete) {
         this.initGrade();
       } else {
-        this.onImageLoad = img.addEventListener('load', (() => {
+        this.onImageLoad = this.img.addEventListener('load', (() => {
           this.initGrade();
         }).bind(this));
       }
