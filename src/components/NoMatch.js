@@ -50,7 +50,7 @@ const ToDoList = styled.ul`
 const ToDo = styled.li`
   font-weight: normal;
   font-size: 1em;
-  margin-top: 10px;
+  margin-top: 13px;
 `;
 
 const NoMatch = ({ query, ...props }: { query: string }) => (
