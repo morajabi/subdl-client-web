@@ -1,6 +1,6 @@
 /* @flow */
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { media, truncate } from '../utils/styleUtils';
 
 // images
@@ -67,9 +67,14 @@ const NavItem = styled.a`
   margin: 0 15px 0 15px;
   font-size: 15px;
   letter-spacing: .5px;
-  text-shadow: 1px 1px 0px #fff;
-  color: ${props => props.blue ? '#2F80ED' : '#333'};
-  cursor: pointer;
+  ${props => props.currentColor ? css`
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+    color: currentColor;
+  ` : css`
+    text-shadow: 1px 1px 0px #fff;
+    color: ${props => props.blue ? '#2F80ED' : '#333'};
+  `}
+    cursor: pointer;
 
   &:first-child {
     margin-left: 0;
@@ -98,7 +103,7 @@ const NavSeparator = styled.span`
  * Top Navigation
  * @param {boolean} searchBar - Wheather show the search bar in center 
  */
-const TopNav = ({ searchBar = false }: { searchBar: boolean }) => {
+const TopNav = ({ searchBar = false, currentColor = false }: { searchBar: boolean, currentColor?: boolean }) => {
   return (
     <Wrapper>
       <FlexWrapper>
@@ -108,17 +113,17 @@ const TopNav = ({ searchBar = false }: { searchBar: boolean }) => {
             <img src={logoType} alt="Subdl: Download subtitle for any movie in any language" />
           </Logo>
           <RightNav>
-            <NavItem href="/">discover</NavItem>
-            <NavItem href="/">popular</NavItem>
-            <NavItem href="/">wishlist</NavItem>
+            <NavItem href="/" currentColor={currentColor}>discover</NavItem>
+            <NavItem href="/" currentColor={currentColor}>popular</NavItem>
+            <NavItem href="/" currentColor={currentColor}>wishlist</NavItem>
           </RightNav>
         </RightWrapper>
 
         <LeftWrapper>
           <LeftNav>
-            <NavItem href="/">login</NavItem>
+            <NavItem href="/" currentColor={currentColor}>login</NavItem>
             <NavSeparator>or</NavSeparator>
-            <NavItem href="/" blue>signup</NavItem>
+            <NavItem href="/" currentColor={currentColor} blue>signup</NavItem>
           </LeftNav>
         </LeftWrapper>
 
