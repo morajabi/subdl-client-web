@@ -68,7 +68,7 @@ const NavItem = styled.a`
   font-size: 15px;
   letter-spacing: .5px;
   ${props => props.currentColor ? css`
-    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 0px rgba(122, 122, 122, 0.7);
     color: currentColor;
   ` : css`
     text-shadow: 1px 1px 0px #fff;
@@ -95,7 +95,8 @@ const NavItem = styled.a`
 
 const NavSeparator = styled.span`
   padding: 7px 0; /* same as NavItem */
-  color: #d0d0d0;
+  color: currentColor;
+  opacity: .5;
   cursor: default;
 `;
 
