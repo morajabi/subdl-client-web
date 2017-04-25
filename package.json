@@ -4,10 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "clean": "",
     "flow": "flow",
+    "clean": "rm -rf dist && mkdir dist",
+    "serve": "",
     "start": "webpack-dev-server --progress --profile --colors --host 0.0.0.0",
-    "build": "webpack --env.production --progress --profile --colors"
+    "build": "yarn run clean && webpack --env.production --progress --profile --colors"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
