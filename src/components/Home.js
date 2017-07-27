@@ -43,7 +43,7 @@ const Home = () => (
       <TopNav searchBar={false} />
     </header>
     <PaddedContainer>
-      <Link to="/search"><Title><Bold>Find perfect subtitles</Bold> in any language for any movie</Title></Link>
+      <Title><Bold>Find perfect subtitles</Bold> in any language for any movie</Title>
       <Overdrive id="search-box">
         <SearchBox loading={false} />
       </Overdrive>

@@ -1,0 +1,29 @@
+{
+  "sessions": [
+    {
+      "id": "ee848f0a-3ed9-4a13-92d7-1e6283838325",
+      "tabLayout": {
+        "type": "stack",
+        "width": 100,
+        "height": 100,
+        "tabs": [
+          {
+            "id": "3c160b01-5028-4a4f-ba20-c6c08ed242df",
+            "relativeUrl": "file://./src/client.js",
+            "additionalData": null
+          },
+          {
+            "id": "650efc40-bc0c-4001-8040-447458753776",
+            "relativeUrl": "file://./src/components/Button.js",
+            "additionalData": null
+          }
+        ],
+        "subItems": [],
+        "activeItemIndex": 0
+      },
+      "lastUsed": 1498919758315,
+      "fileTreeExpanded": true,
+      "selectedTabId": "650efc40-bc0c-4001-8040-447458753776"
+    }
+  ]
+}

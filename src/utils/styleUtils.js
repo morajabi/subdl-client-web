@@ -45,4 +45,8 @@ export const truncate = (width: string) => (`
  */
 export const colors = {
   PRIMARY: '#FFEA52',
+  SECONDARY: '#696969',
+  ORANGE: '#FFBF00',
+  LINK_BLUE: '#4183C4',
+  AMAZON: '#f59300',
 };

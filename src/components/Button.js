@@ -9,9 +9,8 @@ export const ResetedButton = styled.button`
 `;
 
 const BaseButton = styled(ResetedButton)`
-  height: 40px;
-  line-height: 40px;
-  padding: 0 16px;
+  min-height: 40px;
+  padding: 7px 16px;
   font-size: 14px;
   cursor: pointer;
 `;
@@ -22,8 +21,10 @@ const YellowButton = styled(BaseButton)`
 `;
 
 const FlexWrapper = styled.span`
+  height: 100%;
   display: flex;
   align-items: center;
+  line-height: 1.5em;
 `;
 
 const Text = styled.span`

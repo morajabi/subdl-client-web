@@ -1,6 +1,7 @@
 /* @flow */
 import styled, { injectGlobal } from 'styled-components';
 import 'normalize.css/normalize.css';
+import { colors } from './utils/styleUtils';
 
 injectGlobal`
   /* roboto - normal - latin */
@@ -60,7 +61,7 @@ injectGlobal`
 
   a {
     text-decoration: none;
-    color: #4183C4;
+    color: ${colors.LINK_BLUE};
   }
 
   [role=button], a, area, button, input, label, select, summary, textarea {
