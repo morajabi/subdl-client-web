@@ -84,24 +84,24 @@ module.exports = (env = {}) => {
           test: /\.(jpe?g|png|gif|svg)$/,
           use: [
             'file-loader', 
-            {
-              loader: 'image-webpack-loader',
-              options: {
-                mozjpeg: {
-                  progressive: true,
-                },
-                gifsicle: {
-                  interlaced: false,
-                },
-                optipng: {
-                  optimizationLevel: 4,
-                },
-                pngquant: {
-                  quality: '75-90',
-                  speed: 3,
-                },
-              },
-            }
+            // {
+            //   loader: 'image-webpack-loader',
+            //   options: {
+            //     mozjpeg: {
+            //       progressive: true,
+            //     },
+            //     gifsicle: {
+            //       interlaced: false,
+            //     },
+            //     optipng: {
+            //       optimizationLevel: 4,
+            //     },
+            //     pngquant: {
+            //       quality: '75-90',
+            //       speed: 3,
+            //     },
+            //   },
+            // }
           ]
         }
       ]
