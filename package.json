@@ -27,7 +27,7 @@
     "file-loader": "^0.11.1",
     "flow-bin": "^0.43.1",
     "html-webpack-plugin": "^2.28.0",
-    "image-webpack-loader": "^3.3.0",
+    "image-webpack-loader": "^3.3.1",
     "lodash-webpack-plugin": "^0.11.2",
     "pug": "^2.0.0-beta11",
     "pug-loader": "^2.3.0",
@@ -44,7 +44,9 @@
     "grade-js": "^1.0.10",
     "lodash": "^4.17.4",
     "normalize.css": "^6.0.0",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-apollo": "^1.4.10",
     "react-custom-scrollbars": "^4.1.1",
     "react-dom": "^15.5.4",
     "react-overdrive": "^0.0.5",
@@ -54,7 +56,7 @@
     "redux-logger": "^3.0.1",
     "redux-saga": "^0.15.0",
     "reselect": "^3.0.0",
-    "styled-components": "^1.4.4",
+    "styled-components": "^2.1.1",
     "uuid": "^3.0.1"
   }
 }
