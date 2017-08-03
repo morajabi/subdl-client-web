@@ -1,6 +1,7 @@
 /* @flow */
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { gql, graphql } from 'react-apollo';
 import { media } from '../utils/styleUtils';
 import { convert as convertColor } from 'css-color-function';
 import { colors } from '../utils/styleUtils';
@@ -101,10 +102,23 @@ const SearchResultsBox = styled(ResultsBox)`
   z-index: 2;
 `;
 
+const sampleResult = {
+  title: 'Rogue One',
+  year: 2017,
+  posterUrl: winterSoldierPoster,
+  subtitlesCount: 46,
+};
+
 /**
  * Search Box with Results
  */
-const SearchBox = ({ isLoading = false, ...props }: { isLoading?: boolean }) => (
+const SearchBox = (
+  { 
+    isLoading = false, 
+    data: { loading, movies }, 
+    ...props 
+  }
+) => (
   <Wrapper {...props}>
     <form action="/search">
       <Box>
@@ -112,25 +126,31 @@ const SearchBox = ({ isLoading = false, ...props }: { isLoading?: boolean }) => 
           placeholder="Search for movies, TV series, films, etc"
         />
         <InputRight>
-          {isLoading && <SearchLoading size="25px" />}
+          {loading && <SearchLoading size="25px" />}
           <SearchButton type="submit">Search</SearchButton>
         </InputRight>
       </Box>
     </form>
 
-    {false &&
+    {true &&
       <SearchResultsBox
-        items={[
-          {
-            title: 'Rogue One',
-            year: 2017,
-            posterUrl: winterSoldierPoster,
-            subtitlesCount: 46,
-          }
-        ]} 
+        items={movies && movies.map(d => ({ ...sampleResult, ...d }))} 
       />
-      }
+    }
   </Wrapper>
 );
 
-export default SearchBox;
+const channelsListQuery = gql`
+  query ChannelsListQuery {
+    movies {
+      id
+      title
+    }
+  }
+`;
+
+const ChannelsListWithData = graphql(channelsListQuery)(SearchBox);
+
+
+
+export default ChannelsListWithData;

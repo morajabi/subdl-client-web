@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
-export const ResetedButton = styled.button`
+export const ResetedButton: any = styled.button`
   border: none;
   background: none;
   outline: none;
