@@ -68,14 +68,22 @@ const Input = styled.input`
   width: 100%;
   height: 100%;
   line-height: ${inputHeight};
-  padding: 0 10px;
+  padding: 0 12px;
   border: 1px solid #DDDDDD;
   font-size: 18px;
   color: #CACACA;
-  
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+
   ::placeholder {
     color: #CACACA;
   }
+`;
+
+const ForgetLink = styled.div`
+  margin: 6px 0 0 0;
+  font-size: 13px;
+  // letter-spacing: .3px;
+  color: #ABABAB;
 `;
 
 
@@ -100,6 +108,14 @@ const InputLabel = (props) => (
   </InputLabelContainer>
 );
 
+const ForgetPassword = () => (
+  <ForgetLink>
+    <span>Dont’t remember?</span> 
+    <ForwardLink to="/">Recover your password</ForwardLink>
+  </ForgetLink>
+);
+
+
 const Login = () => (
   <div>
     <header>
@@ -108,8 +124,9 @@ const Login = () => (
     <PaddedContainer>
       <Header />
       <Form>
-        <InputLabel label="Your Email" placeholder="e.g. you@example.com" />
+        <InputLabel label="Your Email" placeholder="e.g. you@example.com" under />
         <InputLabel label="Password" placeholder="Text is invisible" />
+        <ForgetPassword />
       </Form>
     </PaddedContainer>
   </div>
