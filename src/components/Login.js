@@ -80,10 +80,37 @@ const Input = styled.input`
 `;
 
 const ForgetLink = styled.div`
-  margin: 6px 0 0 0;
-  font-size: 13px;
+  margin: 7px 0 0 0;
+  font-size: 12px;
   // letter-spacing: .3px;
   color: #ABABAB;
+`;
+
+
+const LineButtonContainer = styled.div`
+  width: 100%;
+  height: 52px;
+  margin: 10px 0 0 0;
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+
+const LoginButtonLine = styled.div`
+  width: 152px;
+  border-top: 1px solid #EDEDED;
+`;
+
+
+const LoginButtonYellow = styled.input`
+  width: 160px;
+  height: 42px;
+  background: #FFEE2B;
+  border: 1px solid #E7D722;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
 `;
 
 
@@ -115,6 +142,12 @@ const ForgetPassword = () => (
   </ForgetLink>
 );
 
+const LoginButton = () => (
+  <LoginButtonYellow type="submit" value="Login to your account" />
+);
+
+
+
 
 const Login = () => (
   <div>
@@ -127,6 +160,10 @@ const Login = () => (
         <InputLabel label="Your Email" placeholder="e.g. you@example.com" under />
         <InputLabel label="Password" placeholder="Text is invisible" />
         <ForgetPassword />
+        <LineButtonContainer>
+          <LoginButtonLine />
+          <LoginButton />
+        </LineButtonContainer>
       </Form>
     </PaddedContainer>
   </div>
