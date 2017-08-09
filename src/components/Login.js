@@ -5,6 +5,7 @@ import { media } from '../utils/styleUtils';
 
 import Container from './Container';
 import TopNav from './TopNav';
+import Input from './Input';
 
 const PaddedContainer = styled(Container)`
   padding-top: 100px;
@@ -47,40 +48,9 @@ const Form = styled.form`
   height: 250px;
 `;
 
-const Label = styled.label`
-  font-size: 15px;
-  color: #9A9A9A;
-`;
-
-const InputLabelContainer = styled.div`
-  margin-top: 20px;
-`;
-
-const inputHeight = '45px';
-
-const InputContainer = styled.div`
-  width: 330px;
-  height: ${inputHeight};
-  margin-top: 5px;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  height: 100%;
-  line-height: ${inputHeight};
-  padding: 0 12px;
-  border: 1px solid #DDDDDD;
-  font-size: 18px;
-  color: #CACACA;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
-
-  ::placeholder {
-    color: #CACACA;
-  }
-`;
 
 const ForgetLink = styled.div`
-  margin: 7px 0 0 0;
+  margin: 8px 0 0 0;
   font-size: 12px;
   // letter-spacing: .3px;
   color: #ABABAB;
@@ -104,13 +74,17 @@ const LoginButtonLine = styled.div`
 `;
 
 
-const LoginButtonYellow = styled.input`
+const LoginButtonYellow = styled.div`
   width: 160px;
   height: 42px;
   background: #FFEE2B;
   border: 1px solid #E7D722;
   box-sizing: border-box;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 `;
 
 
@@ -126,14 +100,7 @@ const Header = () => (
 );
 
 
-const InputLabel = (props) => (
-  <InputLabelContainer>
-    <Label>{props.label}</Label><br />
-    <InputContainer>
-      <Input type="text" placeholder={props.placeholder} />
-    </InputContainer>
-  </InputLabelContainer>
-);
+
 
 const ForgetPassword = () => (
   <ForgetLink>
@@ -143,10 +110,12 @@ const ForgetPassword = () => (
 );
 
 const LoginButton = () => (
-  <LoginButtonYellow type="submit" value="Login to your account" />
+  <LoginButtonYellow>
+    <span>
+      <strong>Login</strong> to your account
+    </span>
+  </LoginButtonYellow>
 );
-
-
 
 
 const Login = () => (
@@ -157,8 +126,8 @@ const Login = () => (
     <PaddedContainer>
       <Header />
       <Form>
-        <InputLabel label="Your Email" placeholder="e.g. you@example.com" under />
-        <InputLabel label="Password" placeholder="Text is invisible" />
+        <Input type="text" label="Your Email" placeholder="e.g. you@example.com"  />
+        <Input type="password" label="Password" placeholder="Text is invisible" />
         <ForgetPassword />
         <LineButtonContainer>
           <LoginButtonLine />
