@@ -9,19 +9,18 @@ export const ResetedInput = styled.input`
 `;
 
 const Label = styled.label`
+  margin-bottom: 5px;
   font-size: 15px;
   font-weight: bold;
   color: #9A9A9A;
 `;
 
 const InputLabelContainer = styled.div`
-  margin-top: 20px;
 `;
 
 const InputContainer = styled.div`
   width: 330px;
   height: 45px;
-  margin-top: 5px;
 `;
 
 const StyledInput = ResetedInput.extend`
