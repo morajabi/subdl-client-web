@@ -55,8 +55,34 @@ const ForwardLink = styled(Link)`
 
 const Form = styled.form`
   margin: 40px auto;
-  width: 330px;
+  width: 709px;
   height: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Column = styled.div`
+  width: 49.5%;
+  height: 100%;
+  over-flow: hidden;
+
+  &:last-child {
+    border-left: 1px solid #F0F0F0;
+    padding-left: 30px;
+  }
+`;
+
+const ColumnTitle = styled.div`
+  width: 100%;
+  height: 20px;
+  color: #C2C2C2;
+  font-size: 15px;
+  font-style: italic;
+`;
+
+const InputWithMargin = styled(Input)`
+  margin-top: 20px;
 `;
 
 const Header = () => (
@@ -79,7 +105,33 @@ const Signup = () => (
     <PaddedContainer>
       <Header />
       <Form>
-     
+        <Column>
+          <Input
+            type="text" 
+            label="Your Email" placeholder="e.g. you@example.com" 
+            labelDescription="(We’ll never spam you)" 
+          />
+          <InputWithMargin 
+            type="password" 
+            label="Password" 
+            placeholder="Text is invisible" 
+            description="More than 8 charachters" 
+          />
+        </Column>
+
+        <Column>
+          <ColumnTitle>Just two more questions...</ColumnTitle>
+          <InputWithMargin 
+            type="text" label="What’s your name?" 
+            placeholder="e.g. Sara Bradly" 
+            labelDescription="(We’ll never spam you)" 
+          />
+          <InputWithMargin 
+            type="password"
+            label="Where are you from?"
+            placeholder="Pick a country ..."
+          />
+        </Column>
       </Form>
     </PaddedContainer>
   </div>
