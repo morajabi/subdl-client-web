@@ -30,8 +30,19 @@ const TitleLine = styled.div`
   border-top: 1px solid #CACACA;
 `;
 
+const Subtitle = styled.span`
+  margin: 13px 0 0 0;
+  display: block;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  font-size: 18px;
+  text-align: center;
+  color: #000000;
+`;
+
 const Forward = styled.p`
-  margin: 3px 0 0 0;
+  margin: 7px 0 0 0;
   font-size: 13px;
   letter-spacing: .3px;
   color: #ABABAB;
@@ -51,16 +62,16 @@ const Form = styled.form`
 const Header = () => (
   <Center>
     <TitleLine />
-    <Title>Register</Title>
+    <Title>Signup</Title>
+    <Subtitle>Join 6,165 users in our family at SUBDL</Subtitle>
     <Forward>
-      <span>Join 6,165 users in our family at SUBDL</span>
       <span>Already a user?</span>
       <ForwardLink to="/login">login</ForwardLink>
     </Forward>
   </Center>
 );
 
-const Register = () => (
+const Signup = () => (
   <div>
     <header>
       <TopNav searchBar={false}></TopNav>
@@ -74,4 +85,4 @@ const Register = () => (
   </div>
 );
 
-export default Register;
+export default Signup;
