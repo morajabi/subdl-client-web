@@ -41,15 +41,37 @@ const StyledInput = ResetedInput.extend`
   }
 `;
 
-const Input = ({ wrapperProps, className, label, ...props }) => (
+const InputDescription = styled.div`
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  color: #ABABAB;
+`;
+
+const LabelDescription = styled.span`
+  font-size: 12px;
+  color: #BDBDBD;
+  padding-left: 5px;
+`;
+
+const Input = ({ wrapperProps, className, label, labelDescription, description, ...props }) => (
   <InputLabelContainer {...wrapperProps} className={className}>
 
-    {label && <Label>{label}</Label>}
+    {label && 
+      <Label>{label}</Label>  
+    }
+
+    {labelDescription &&
+      <LabelDescription>{labelDescription}</LabelDescription>
+    }
 
     <InputContainer>
       <StyledInput {...props} />
     </InputContainer>
+
+    {description && 
+      <InputDescription>{description}</InputDescription>
+    }
   </InputLabelContainer>
 );
-<Input wrapperProps={{ style: { width: "100px"} }}/>
+
 export default Input;
