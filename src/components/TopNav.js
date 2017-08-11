@@ -124,7 +124,7 @@ const TopNav = ({ searchBar = false, currentColor = false }: { searchBar: boolea
           <LeftNav>
             <NavItem href="/login" currentColor={currentColor}>login</NavItem>
             <NavSeparator>or</NavSeparator>
-            <NavItem href="/Register" currentColor={currentColor} blue>signup</NavItem>
+            <NavItem href="/register" currentColor={currentColor} blue>signup</NavItem>
           </LeftNav>
         </LeftWrapper>
 

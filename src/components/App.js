@@ -60,7 +60,7 @@ class App extends Component {
               <Route path="/subtitles" component={Subtitles} />
               <Route path="/about" component={About} />
               <Route path="/login" component={Login} />
-              <Route path="/Register" component={Register} />
+              <Route path="/register" component={Register} />
               <Footer showBgCaption={isHome} />
             </Main>
           );

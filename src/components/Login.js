@@ -105,7 +105,7 @@ const Header = () => (
 const ForgetPassword = () => (
   <ForgetLink>
     <span>Dont’t remember?</span> 
-    <ForwardLink to="/">Recover your password</ForwardLink>
+    <ForwardLink to="/register">Recover your password</ForwardLink>
   </ForgetLink>
 );
 
