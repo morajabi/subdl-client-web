@@ -18,18 +18,16 @@ const InputLabelContainer = styled.div`
   margin-top: 20px;
 `;
 
-const inputHeight = '45px';
-
 const InputContainer = styled.div`
   width: 330px;
-  height: ${inputHeight};
+  height: 45px;
   margin-top: 5px;
 `;
 
 const StyledInput = ResetedInput.extend`
   width: 100%;
   height: 100%;
-  line-height: ${inputHeight};
+  line-height: 100%;
   padding: 0 12px;
   border: 1px solid #DDDDDD;
   font-size: 17px;
