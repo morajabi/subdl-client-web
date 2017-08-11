@@ -2,20 +2,27 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+/**
+ * Reset default Input styles
+ */
 export const ResetedInput = styled.input`
   border: none;
   background: none;
   outline: none;
 `;
 
-const Label = styled.label`
+const Wrapper = styled.div`
+`;
+
+
+const LabelsWrapper = styled.div`
   margin-bottom: 5px;
+`;
+
+const Label = styled.label`
   font-size: 15px;
   font-weight: bold;
   color: #9A9A9A;
-`;
-
-const InputLabelContainer = styled.div`
 `;
 
 const InputContainer = styled.div`
@@ -51,15 +58,17 @@ const LabelDescription = styled.span`
 `;
 
 const Input = ({ wrapperProps, className, label, labelDescription, description, ...props }) => (
-  <InputLabelContainer {...wrapperProps} className={className}>
+  <Wrapper {...wrapperProps} className={className}>
 
-    {label && 
-      <Label>{label}</Label>  
-    }
+    <LabelsWrapper>
+      {label && 
+        <Label>{label}</Label>  
+      }
 
-    {labelDescription &&
-      <LabelDescription>{labelDescription}</LabelDescription>
-    }
+      {labelDescription &&
+        <LabelDescription>{labelDescription}</LabelDescription>
+      }
+    </LabelsWrapper>
 
     <InputContainer>
       <StyledInput {...props} />
@@ -68,7 +77,7 @@ const Input = ({ wrapperProps, className, label, labelDescription, description, 
     {description && 
       <InputDescription>{description}</InputDescription>
     }
-  </InputLabelContainer>
+  </Wrapper>
 );
 
 export default Input;
