@@ -18,6 +18,7 @@ import Home from './Home';
 import Search from './Search';
 import Subtitles from './Subtitles';
 import Login from './login';
+import Register from './Register';
 
 const About = ({ match }) => (
   <div>About {match.url}</div>
@@ -59,6 +60,7 @@ class App extends Component {
               <Route path="/subtitles" component={Subtitles} />
               <Route path="/about" component={About} />
               <Route path="/login" component={Login} />
+              <Route path="/Register" component={Register} />
               <Footer showBgCaption={isHome} />
             </Main>
           );
