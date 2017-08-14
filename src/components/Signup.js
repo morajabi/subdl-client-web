@@ -6,6 +6,7 @@ import { media } from '../utils/styleUtils';
 import Container from './Container';
 import TopNav from './TopNav';
 import Input from './Input';
+import Select from './Select';
 
 const PaddedContainer = styled(Container)`
   padding-top: 100px;
@@ -31,7 +32,7 @@ const TitleLine = styled.div`
 `;
 
 const Subtitle = styled.span`
-  margin: 13px 0 0 0;
+  margin: 8px 0 0 0;
   display: block;
   font-style: normal;
   font-weight: 300;
@@ -85,6 +86,9 @@ const InputWithMargin = styled(Input)`
   margin-top: 20px;
 `;
 
+const SelectWithMargin = styled(Select)`
+  margin-top: 20px;
+`;
 const Header = () => (
   <Center>
     <TitleLine />
@@ -126,8 +130,7 @@ const Signup = () => (
             placeholder="e.g. Sara Bradly" 
             labelDescription="(We’ll never spam you)" 
           />
-          <InputWithMargin 
-            type="password"
+          <SelectWithMargin
             label="Where are you from?"
             placeholder="Pick a country ..."
           />
