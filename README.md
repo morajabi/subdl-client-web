@@ -8,3 +8,6 @@
 - Grinde.JS
 - styled-components
 - Jest
+
+## New Features
+- Auto Complete
