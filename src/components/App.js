@@ -44,7 +44,7 @@ const Main = styled.main`
   `}
 `;
 
-class App extends Component {
+class App extends Component<{}> {
   render() {
     return (
       <Router>
