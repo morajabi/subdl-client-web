@@ -1,16 +1,16 @@
 import reducer, {
   SEARCH_QUERY_CHANGED,
   // action creators
-  setSearchValue,
+  setSearchQuery,
   // selectors
   searchQuerySelector,
 } from '../search';
 
 describe('Search [redux module]', () => {
   describe('action creators', () => {
-    describe('setSearchValue', () => {
+    describe('setSearchQuery', () => {
       it('should generate correct action', () => {
-        expect(setSearchValue('query')).toEqual({
+        expect(setSearchQuery('query')).toEqual({
           type: SEARCH_QUERY_CHANGED,
           value: 'query',
         });

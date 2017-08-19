@@ -22,7 +22,7 @@ export default (state = initialState, action?): State => {
 };
 
 // - action creators
-export const setSearchValue = (value) => ({
+export const setSearchQuery = (value) => ({
   type: SEARCH_QUERY_CHANGED,
   value,
 })
