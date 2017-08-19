@@ -17,3 +17,4 @@ node_modules/styled-components/flow-typed/inline-style-prefixer_vx.x.x.js
 [options]
 suppress_type=$FlowIssue
 unsafe.enable_getters_and_setters=true
+esproposal.decorators=ignore
