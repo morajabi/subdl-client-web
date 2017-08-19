@@ -23,7 +23,7 @@ module.exports = (env = {}) => {
           // production plugins
         } else {
           // development plugins
-          app = [ 
+          app = [
             'react-hot-loader/patch',
             // activate HMR for React
 
@@ -57,7 +57,7 @@ module.exports = (env = {}) => {
 
     devtool: (() => {
       if (isProduction) return 'hidden-source-map';
-      else return 'cheap-module-eval-source-map';
+      else return 'eval-source-map';
       // else return 'source-map';
     })(),
 
@@ -83,7 +83,7 @@ module.exports = (env = {}) => {
         {
           test: /\.(jpe?g|png|gif|svg)$/,
           use: [
-            'file-loader', 
+            'file-loader',
             // {
             //   loader: 'image-webpack-loader',
             //   options: {
@@ -180,6 +180,6 @@ module.exports = (env = {}) => {
 
   };
 
-  
+
   return config;
 }
