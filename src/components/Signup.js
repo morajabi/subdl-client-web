@@ -89,6 +89,11 @@ const InputWithMargin = styled(Input)`
 const SelectWithMargin = styled(Select)`
   margin-top: 20px;
 `;
+
+const TermsContainer = styled.div`
+  margin-top: 20px;
+`;
+
 const Header = () => (
   <Center>
     <TitleLine />
@@ -99,6 +104,13 @@ const Header = () => (
       <ForwardLink to="/login">login</ForwardLink>
     </Forward>
   </Center>
+);
+
+const TermsCheckbox = (props) => (
+  <TermsContainer>
+    <input type="checkbox" name="terms" />
+    <span>I read and agree with the Terms of Services and Privacy Policy.</span>
+  </TermsContainer>
 );
 
 const Signup = () => (
@@ -121,6 +133,7 @@ const Signup = () => (
             placeholder="Text is invisible" 
             description="More than 8 charachters" 
           />
+          <TermsCheckbox />
         </Column>
 
         <Column>
