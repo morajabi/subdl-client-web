@@ -5,8 +5,6 @@ import { ApolloClient, ApolloProvider, createNetworkInterface } from 'react-apol
 import { AppContainer } from 'react-hot-loader';
 import createStore from './store';
 
-import { INCREMENT } from './modules/counter';
-
 // global styles
 import './styles';
 
@@ -21,7 +19,6 @@ const apolloClient = new ApolloClient({
 });
 
 const store = createStore(apolloClient);
-
 
 const render = Component => {
   ReactDOM.render(
