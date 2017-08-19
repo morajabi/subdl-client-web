@@ -16,7 +16,9 @@
     "flow"
   ],
   "plugins": [
-    "transform-es2015-destructuring", 
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-es2015-destructuring",
     "transform-object-rest-spread"
   ]
 }
