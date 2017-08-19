@@ -13,24 +13,22 @@ import './styles';
 // components
 import App from './components/App';
 
-const store = createStore();
-
 // Init Apollo
-const networkInterface = createNetworkInterface({ 
-  uri: 'http://localhost:3000/graphql',
-});
 const apolloClient = new ApolloClient({
-  networkInterface,
+  networkInterface: createNetworkInterface({
+    uri: 'http://localhost:3000/graphql',
+  }),
 });
+
+const store = createStore(apolloClient);
+
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
-      <Provider store={store}>
-        <ApolloProvider client={apolloClient}>
-          <App />
-        </ApolloProvider>
-      </Provider>
+      <ApolloProvider store={store} client={apolloClient}>
+        <App />
+      </ApolloProvider>
     </AppContainer>,
     document.getElementById('root')
   )

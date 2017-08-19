@@ -1,10 +1,19 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import logger from 'redux-logger';
 import rootReducer from './modules/counter';
 
-export default () => {
-  // middlewares 
-  const middlewares = [logger];
+export default (apolloClient) => {
+  // reducers
+  const reducers = combineReducers({
+    rootReducer,
+    apollo: apolloClient.reducer(),
+  });
+
+  // middlewares
+  const middlewares = [
+    apolloClient.middleware(),
+    logger
+  ];
 
   // add devtools
   const composeEnhancers = typeof window !== 'undefined' &&
@@ -12,11 +21,11 @@ export default () => {
 
   // config store
   const store = createStore(
-    rootReducer,
+    reducers,
     composeEnhancers(
       applyMiddleware(...middlewares)
     )
   );
-  
+
   return store;
 };
