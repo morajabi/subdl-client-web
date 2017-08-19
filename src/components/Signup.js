@@ -94,6 +94,11 @@ const TermsContainer = styled.div`
   margin-top: 20px;
 `;
 
+const Termstext = styled.span`
+  margin-left: 10px;
+`;
+
+
 const Header = () => (
   <Center>
     <TitleLine />
@@ -109,7 +114,7 @@ const Header = () => (
 const TermsCheckbox = (props) => (
   <TermsContainer>
     <input type="checkbox" name="terms" />
-    <span>I read and agree with the Terms of Services and Privacy Policy.</span>
+    <Termstext>I read and agree with the Terms of Services and Privacy Policy.</Termstext>
   </TermsContainer>
 );
 
