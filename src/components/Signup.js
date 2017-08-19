@@ -96,6 +96,8 @@ const TermsContainer = styled.div`
 
 const Termstext = styled.span`
   margin-left: 10px;
+  font-size: 12px;
+  color: #9A9A9A;
 `;
 
 
