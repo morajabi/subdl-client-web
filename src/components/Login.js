@@ -48,14 +48,12 @@ const Form = styled.form`
   height: 250px;
 `;
 
-
 const ForgetLink = styled.div`
   margin: 8px 0 0 0;
   font-size: 12px;
   // letter-spacing: .3px;
   color: #ABABAB;
 `;
-
 
 const LineButtonContainer = styled.div`
   width: 100%;
@@ -67,12 +65,10 @@ const LineButtonContainer = styled.div`
   align-items: center;
 `;
 
-
 const LoginButtonLine = styled.div`
   width: 152px;
   border-top: 1px solid #EDEDED;
 `;
-
 
 const LoginButtonYellow = styled.div`
   width: 160px;
@@ -103,8 +99,6 @@ const Header = () => (
 );
 
 
-
-
 const ForgetPassword = () => (
   <ForgetLink>
     <span>Dont’t remember?</span> 
@@ -119,7 +113,6 @@ const LoginButton = () => (
     </span>
   </LoginButtonYellow>
 );
-
 
 const Login = () => (
   <div>
