@@ -87,6 +87,9 @@ const LoginButtonYellow = styled.div`
   font-size: 14px;
 `;
 
+const InputWithMargin = styled(Input)`
+  margin-top: 20px;
+`;
 
 const Header = () => (
   <Center>
@@ -126,8 +129,8 @@ const Login = () => (
     <PaddedContainer>
       <Header />
       <Form>
-        <Input type="text" label="Your Email" placeholder="e.g. you@example.com"  />
-        <Input type="password" label="Password" placeholder="Text is invisible" />
+        <InputWithMargin type="text" label="Your Email" placeholder="e.g. you@example.com"  />
+        <InputWithMargin type="password" label="Password" placeholder="Text is invisible" />
         <ForgetPassword />
         <LineButtonContainer>
           <LoginButtonLine />
