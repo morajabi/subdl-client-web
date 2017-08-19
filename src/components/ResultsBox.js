@@ -36,10 +36,10 @@ const ResultsBox = ({ items = [], ...props }: { items: Array<Object> }) => (
   <Box {...props}>
     {map(items, (item, i) => {
       if(i === 0) {
-        // render with poster in the first item
+        // render with poster for the first item
         return (
-          <ResultRow 
-            key={v4()} 
+          <ResultRow
+            key={v4()}
             withPoster={true}
           >
             <MovieItemWithPoster
@@ -53,8 +53,8 @@ const ResultsBox = ({ items = [], ...props }: { items: Array<Object> }) => (
       // render without poster
       return (
         <ResultRow key={v4()}>
-          <MovieItem 
-            {...item} 
+          <MovieItem
+            {...item}
             posterUrl={false}
           />
         </ResultRow>
