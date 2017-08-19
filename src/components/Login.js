@@ -81,6 +81,7 @@ const LoginButtonYellow = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  cursor: pointer;
 `;
 
 const InputWithMargin = styled(Input)`
