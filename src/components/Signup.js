@@ -120,6 +120,13 @@ const TermsCheckbox = (props) => (
   </TermsContainer>
 );
 
+const ReferLanguage = () => (
+  <div>
+    <span>Your language is Farsi.</span>
+    <a href="#">Pick another language</a>
+  </div>
+);
+
 const Signup = () => (
   <div>
     <header>
@@ -154,6 +161,7 @@ const Signup = () => (
             label="Where are you from?"
             placeholder="Pick a country ..."
           />
+          <ReferLanguage/>
         </Column>
       </Form>
     </PaddedContainer>
