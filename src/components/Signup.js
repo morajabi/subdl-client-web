@@ -100,6 +100,23 @@ const Termstext = styled.span`
   color: #9A9A9A;
 `;
 
+const ReferLanguageContainer = styled.div`
+  width: 100%;
+  height: 20px;
+  color: #C2C2C2;
+  font-size: 15px;
+  margin-top: 20px;
+`;
+
+const PickLanguage = styled.a`
+  font-size: 13px;
+  color: #2D9CDB;
+  margin-left: 5px;
+`;
+
+const ReferLanguageText = styled.span`
+  font-size: 16px;
+`;
 
 const Header = () => (
   <Center>
@@ -121,10 +138,10 @@ const TermsCheckbox = (props) => (
 );
 
 const ReferLanguage = () => (
-  <div>
-    <span>Your language is Farsi.</span>
-    <a href="#">Pick another language</a>
-  </div>
+  <ReferLanguageContainer>
+    <ReferLanguageText>Your language is <em>Farsi</em>.</ReferLanguageText>
+    <PickLanguage href="#">Pick another language</PickLanguage>
+  </ReferLanguageContainer>
 );
 
 const Signup = () => (
@@ -161,7 +178,7 @@ const Signup = () => (
             label="Where are you from?"
             placeholder="Pick a country ..."
           />
-          <ReferLanguage/>
+          <ReferLanguage />
         </Column>
       </Form>
     </PaddedContainer>
