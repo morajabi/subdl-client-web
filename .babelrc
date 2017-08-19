@@ -20,5 +20,17 @@
     "transform-class-properties",
     "transform-es2015-destructuring",
     "transform-object-rest-spread"
-  ]
+  ],
+
+  "env": {
+    "test": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": "current"
+          }
+        }]
+      ]
+    }
+  }
 }

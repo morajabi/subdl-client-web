@@ -8,11 +8,14 @@
     "clean": "rm -rf dist && mkdir dist",
     "serve": "",
     "start": "webpack-dev-server --progress --profile --colors --host 0.0.0.0",
-    "build": "yarn run clean && webpack --env.production --progress --profile --colors"
+    "build": "yarn run clean && webpack --env.production --progress --profile --colors",
+    "test": "jest",
+    "test:watch": "yarn test -- --watch"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.1",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^6.4.1",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
