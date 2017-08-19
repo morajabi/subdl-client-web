@@ -38,6 +38,7 @@
     "webpack-hot-middleware": "^2.18.0"
   },
   "dependencies": {
+    "apollo-client": "^1.9.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-1": "^6.24.1",
     "css-color-function": "^1.3.0",
