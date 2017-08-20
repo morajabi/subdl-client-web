@@ -13,3 +13,7 @@
 - Auto Complete
 
 ## Contribute
+First clone the repository:
+```
+git clone https://github.com/morajabi/subdl-api.git
+```
