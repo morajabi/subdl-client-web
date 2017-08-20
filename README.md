@@ -26,3 +26,9 @@ or
 ```
 npm install
 ```
+
+Congrates! Now you can start the server:
+```
+yarn start
+```
+Head to your browser and open [`localhost:3000`](http://localhost:3000).
