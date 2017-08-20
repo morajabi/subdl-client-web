@@ -57,7 +57,17 @@ const ForwardLink = styled(Link)`
 const Form = styled.form`
   margin: 40px auto;
   width: 709px;
-  height: 250px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ColumnsContainer = styled.div`
+  margin: 40px auto;
+  width: 709px;
+  height: 450px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -118,6 +128,35 @@ const ReferLanguageText = styled.span`
   font-size: 16px;
 `;
 
+const SignupContainer = styled.div`
+  width: 400px;
+  height: 52px;
+  margin: 10px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const SignButtonLine = styled.div`
+  width: 152px;
+  border-top: 1px solid #EDEDED;
+`;
+
+const SignupButtonYellow = styled.div`
+  width: 160px;
+  height: 42px;
+  background: #FFEE2B;
+  border: 1px solid #E7D722;
+  box-sizing: border-box;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+
 const Header = () => (
   <Center>
     <TitleLine />
@@ -144,6 +183,17 @@ const ReferLanguage = () => (
   </ReferLanguageContainer>
 );
 
+
+
+const SignupButton = () => (
+  <SignupContainer>
+    <SignButtonLine />
+    <SignupButtonYellow />
+    <SignButtonLine />
+  </SignupContainer>
+);
+
+
 const Signup = () => (
   <div>
     <header>
@@ -152,34 +202,37 @@ const Signup = () => (
     <PaddedContainer>
       <Header />
       <Form>
-        <Column>
-          <Input
-            type="text" 
-            label="Your Email" placeholder="e.g. you@example.com" 
-            labelDescription="(We’ll never spam you)" 
-          />
-          <InputWithMargin 
-            type="password" 
-            label="Password" 
-            placeholder="Text is invisible" 
-            description="More than 8 charachters" 
-          />
-          <TermsCheckbox />
-        </Column>
+        <ColumnsContainer>
+          <Column>
+            <Input
+              type="text" 
+              label="Your Email" placeholder="e.g. you@example.com" 
+              labelDescription="(We’ll never spam you)" 
+            />
+            <InputWithMargin 
+              type="password" 
+              label="Password" 
+              placeholder="Text is invisible" 
+              description="More than 8 charachters" 
+            />
+            <TermsCheckbox />
+          </Column>
 
-        <Column>
-          <ColumnTitle>Just two more questions...</ColumnTitle>
-          <InputWithMargin 
-            type="text" label="What’s your name?" 
-            placeholder="e.g. Sara Bradly" 
-            labelDescription="(We’ll never spam you)" 
-          />
-          <SelectWithMargin
-            label="Where are you from?"
-            placeholder="Pick a country ..."
-          />
-          <ReferLanguage />
-        </Column>
+          <Column>
+            <ColumnTitle>Just two more questions...</ColumnTitle>
+            <InputWithMargin 
+              type="text" label="What’s your name?" 
+              placeholder="e.g. Sara Bradly" 
+              labelDescription="(We’ll never spam you)" 
+            />
+            <SelectWithMargin
+              label="Where are you from?"
+              placeholder="Pick a country ..."
+            />
+            <ReferLanguage />
+          </Column>
+        </ColumnsContainer>
+        <SignupButton />
       </Form>
     </PaddedContainer>
   </div>
