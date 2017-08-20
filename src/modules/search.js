@@ -1,4 +1,4 @@
-export const SEARCH_QUERY_CHANGED = "counter/INCREMENT";
+export const SEARCH_QUERY_CHANGED = "search/SEARCH_QUERY_CHANGED";
 
 
 // - state
