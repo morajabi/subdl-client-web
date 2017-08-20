@@ -1,5 +1,5 @@
 # subdl-client-web
-🍿  SUBDL web client with React, Redux, Apollo and styled-components 
+🍿  SUBDL web client with React, Redux, Apollo and styled-components
 
 ## Technologies
 - React
@@ -11,3 +11,5 @@
 
 ## New Features
 - Auto Complete
+
+## Contribute
