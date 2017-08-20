@@ -144,12 +144,13 @@ const SignButtonLine = styled.div`
 
 const SignupButtonYellow = styled.div`
   width: 124px;
-  height: 42px;
+  height: 45px;
   background: #FFEE2B;
   border: 1px solid #E7D722;
   box-sizing: border-box;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 14px;
@@ -157,12 +158,18 @@ const SignupButtonYellow = styled.div`
 `;
 
 const SignupText = styled.strong`
-  font-weight: 500;
+  font-weight: 700;
   line-height: normal;
   font-size: 17px;
   color: #333333;
 `;
 
+const SignupSmallText = styled.span`
+  font-size: 9px;
+  color: #333333;
+  opacity: 0.7;
+  margin-top: 3px;
+`;
 
 const Header = () => (
   <Center>
@@ -194,8 +201,8 @@ const SignupButton = () => (
   <SignupContainer>
     <SignButtonLine />
     <SignupButtonYellow>
-        <strong>Signup!</strong> 
-        <span>Join our family now</span>
+        <SignupText>Signup!</SignupText> 
+        <SignupSmallText>Join our family now</SignupSmallText>
     </SignupButtonYellow>
     <SignButtonLine />
   </SignupContainer>
