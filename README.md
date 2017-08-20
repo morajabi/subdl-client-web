@@ -17,3 +17,12 @@ First clone the repository:
 ```
 git clone https://github.com/morajabi/subdl-api.git
 ```
+
+Then install required packages:
+```
+yarn
+```
+or
+```
+npm install
+```
