@@ -129,7 +129,7 @@ const ReferLanguageText = styled.span`
 `;
 
 const SignupContainer = styled.div`
-  width: 400px;
+  width: 300px;
   height: 52px;
   margin: 10px 0 0 0;
   display: flex;
@@ -138,12 +138,12 @@ const SignupContainer = styled.div`
 `;
 
 const SignButtonLine = styled.div`
-  width: 152px;
+  width: 66px;
   border-top: 1px solid #EDEDED;
 `;
 
 const SignupButtonYellow = styled.div`
-  width: 160px;
+  width: 124px;
   height: 42px;
   background: #FFEE2B;
   border: 1px solid #E7D722;
