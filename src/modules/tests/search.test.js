@@ -21,7 +21,7 @@ describe('Search [redux module]', () => {
   describe('selectors', () => {
     describe('searchQuerySelector', () => {
       it('should return correct value from state', () => {
-        const state = { searchQuery: 'query' };
+        const state = { search: { searchQuery: 'query' } };
 
         expect(searchQuerySelector(state)).toBe('query');
       });
