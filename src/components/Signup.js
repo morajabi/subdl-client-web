@@ -156,6 +156,13 @@ const SignupButtonYellow = styled.div`
   cursor: pointer;
 `;
 
+const SignupText = styled.strong`
+  font-weight: 500;
+  line-height: normal;
+  font-size: 17px;
+  color: #333333;
+`;
+
 
 const Header = () => (
   <Center>
@@ -183,16 +190,16 @@ const ReferLanguage = () => (
   </ReferLanguageContainer>
 );
 
-
-
 const SignupButton = () => (
   <SignupContainer>
     <SignButtonLine />
-    <SignupButtonYellow />
+    <SignupButtonYellow>
+        <strong>Signup!</strong> 
+        <span>Join our family now</span>
+    </SignupButtonYellow>
     <SignButtonLine />
   </SignupContainer>
 );
-
 
 const Signup = () => (
   <div>
