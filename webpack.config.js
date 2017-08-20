@@ -57,7 +57,7 @@ module.exports = (env = {}) => {
 
     devtool: (() => {
       if (isProduction) return 'hidden-source-map';
-      else return 'eval-source-map';
+      else return 'source-map';
       // else return 'source-map';
     })(),
 
