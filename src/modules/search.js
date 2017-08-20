@@ -28,4 +28,4 @@ export const setSearchQuery = (value) => ({
 })
 
 // - selectors
-export const searchQuerySelector = state => state.searchQuery;
+export const searchQuerySelector = state => state.search.searchQuery;
