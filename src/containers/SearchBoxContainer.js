@@ -35,6 +35,7 @@ type Props = {
   setSearchQuery: (query: string) => {},
   data: {
     loading?: boolean,
+    movie?: [Movie],
   },
 };
 
@@ -65,6 +66,7 @@ class SearchBoxContainer extends PureComponent<Props> {
     setDebouncedSearchQuery: (e) => {},
     data: {
       loading: false,
+      movie: [],
     }
   }
 
