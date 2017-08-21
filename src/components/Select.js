@@ -5,10 +5,12 @@ import styled from 'styled-components';
 /**
  * Reset default Input styles
  */
-export const ResetedInput = styled.input`
+export const ResetedInput = styled.select`
   border: none;
   background: none;
   outline: none;
+  border-radius: 0;
+  -webkit-apperance: none;
 `;
 
 const LabelsWrapper = styled.div`
@@ -26,7 +28,7 @@ const InputContainer = styled.div`
   height: 45px;
 `;
 
-const StyledInput = ResetedInput.extend`
+const StyledSelect = ResetedInput.extend`
   width: 100%;
   height: 100%;
   line-height: 100%;
@@ -41,7 +43,7 @@ const StyledInput = ResetedInput.extend`
   }
 `;
 
-const InputDescription = styled.p`
+const InputDescription = styled.div`
   margin: 8px 0 0 0;
   font-size: 12px;
   color: #ABABAB;
@@ -53,7 +55,7 @@ const LabelDescription = styled.span`
   padding-left: 5px;
 `;
 
-const Input = ({ wrapperProps, className, label, labelDescription, description, ...props }) => (
+const Select = ({ wrapperProps, className, label, labelDescription, description, placeholder, ...props }) => (
   <div {...wrapperProps} className={className}>
 
     <LabelsWrapper>
@@ -67,7 +69,12 @@ const Input = ({ wrapperProps, className, label, labelDescription, description, 
     </LabelsWrapper>
 
     <InputContainer>
-      <StyledInput {...props} />
+      <StyledSelect {...props}>
+        <option>{placeholder}</option>
+        <option>howro 1</option>
+        <option>howro 2</option>
+        <option>howro 3</option>
+      </StyledSelect>
     </InputContainer>
 
     {description && 
@@ -76,4 +83,4 @@ const Input = ({ wrapperProps, className, label, labelDescription, description, 
   </div>
 );
 
-export default Input;
+export default Select;
