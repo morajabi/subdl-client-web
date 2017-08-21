@@ -84,7 +84,9 @@ const MovieItem = (
       {posterPath && <Poster src={posterPath} align={posterAlign} />}
       <Info>
         <Title><cite>{title}</cite></Title>
-        <Year separator={true}>{String(year)}</Year>
+        {year &&
+          <Year separator={true}>{String(year)}</Year>
+        }
         {subtitlesCount &&
           <Subtitles>more than {Number(subtitlesCount)} subtitles</Subtitles>
         }
