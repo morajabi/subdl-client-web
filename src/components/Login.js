@@ -70,7 +70,7 @@ const LoginButtonLine = styled.div`
   border-top: 1px solid #EDEDED;
 `;
 
-const LoginButtonYellow = styled.div`
+const YellowLoginButton = styled.button`
   width: 160px;
   height: 42px;
   background: #FFEE2B;
@@ -108,11 +108,11 @@ const ForgetPassword = () => (
 );
 
 const LoginButton = () => (
-  <LoginButtonYellow>
+  <YellowLoginButton type="submit">
     <span>
       <strong>Login</strong> to your account
     </span>
-  </LoginButtonYellow>
+  </YellowLoginButton>
 );
 
 const Login = () => (
