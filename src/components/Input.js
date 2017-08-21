@@ -41,7 +41,7 @@ const StyledInput = ResetedInput.extend`
   }
 `;
 
-const InputDescription = styled.div`
+const InputDescription = styled.p`
   margin: 8px 0 0 0;
   font-size: 12px;
   color: #ABABAB;
