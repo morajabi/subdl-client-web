@@ -123,8 +123,16 @@ const Login = () => (
     <PaddedContainer>
       <Header />
       <Form>
-        <InputWithMargin type="text" label="Your Email" placeholder="e.g. you@example.com"  />
-        <InputWithMargin type="password" label="Password" placeholder="Text is invisible" />
+        <InputWithMargin 
+          type="text" 
+          label="Your Email" 
+          placeholder="e.g. you@example.com"  
+        />
+        <InputWithMargin 
+          type="password" 
+          label="Password" 
+          placeholder="Text is invisible" 
+        />
         <ForgetPassword />
         <LineButtonContainer>
           <LoginButtonLine />
