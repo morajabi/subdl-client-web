@@ -6,12 +6,13 @@ import {
   setSearchQuery,
   searchQuerySelector,
 } from '../modules/search';
+import debounce from 'lodash/debounce';
 
 import SearchBox from '../components/SearchBox';
 
 const moviesQuery = gql`
   query ChannelsListQuery($title: String!) {
-    movies(title: $title) {
+    movies(title: $title, limit: 4, autoCorrect: true) {
       SubdlId
       title
       year
@@ -35,12 +36,6 @@ type Props = {
   },
 };
 
-// {
-//   SubdlId: string,
-//   title: string,
-//   year: number,
-//   posterPath?: string,
-// }
 
 @connect(
   (state) => ({
@@ -48,19 +43,22 @@ type Props = {
   }),
   {
     setSearchQuery,
+    setDebouncedSearchQuery,
   }
 )
 @graphql(moviesQuery, {
   options: (props) => ({
-    variables: { title: props.searchQuery || '' }
+    variables: { title: props.searchQuery }
   }),
 })
 class SearchBoxContainer extends PureComponent<Props> {
 
   inputChanged: Function;
+  debouncedInputChanged: Function;
 
   static defaultProps = {
     setSearchQuery: (e) => {},
+    setDebouncedSearchQuery: (e) => {},
     data: {
       loading: false,
     }
@@ -70,10 +68,17 @@ class SearchBoxContainer extends PureComponent<Props> {
     super(props);
 
     this.inputChanged = this.inputChanged.bind(this);
+    this.debouncedInputChanged = debounce(this.debouncedInputChanged.bind(this), 1000);
+  }
+
+  debouncedInputChanged(value: string) {
+    this.props.setDebouncedSearchQuery(value);
   }
 
   inputChanged(e: any) {
+    e.persist();
     this.props.setSearchQuery(e.target.value);
+    this.debouncedInputChanged(e.target.value);
   }
 
   render() {
