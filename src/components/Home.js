@@ -7,14 +7,14 @@ import Overdrive from 'react-overdrive';
 
 import Container from './Container';
 import TopNav from './TopNav';
-import SearchBox from './SearchBox';
+import SearchBoxContainer from '../containers/SearchBoxContainer';
 import TrendingSuggestions from './TrendingSuggestions';
 
 const PaddedContainer = styled(Container)`
   padding-top: 155px;
 
   ${media.to.medium`
-    padding-top: 100px;  
+    padding-top: 100px;
   `}
 `;
 
@@ -45,7 +45,7 @@ const Home = () => (
     <PaddedContainer>
       <Title><Bold>Find perfect subtitles</Bold> in any language for any movie</Title>
       <Overdrive id="search-box">
-        <SearchBox loading={false} />
+        <SearchBoxContainer loading={false} />
       </Overdrive>
       <TrendingSuggestions />
     </PaddedContainer>

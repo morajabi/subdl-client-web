@@ -55,7 +55,7 @@ const ResultsBox = ({ items = [], ...props }: { items: Array<Object> }) => (
         <ResultRow key={v4()}>
           <MovieItem
             {...item}
-            posterUrl={false}
+            posterPath={false}
           />
         </ResultRow>
       );

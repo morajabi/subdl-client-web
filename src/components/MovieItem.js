@@ -58,16 +58,16 @@ const Subtitles = styled.div`
 `;
 
 const MovieItem = (
-  { posterUrl = false, posterAlign = 'left', title, year, subtitlesCount, ...props }: 
-  { posterUrl?: any, posterAlign: 'right' | 'left', title: string, year?: number | string, subtitlesCount?: number }
+  { posterPath = false, posterAlign = 'left', title, year, subtitlesCount, ...props }:
+  { posterPath?: any, posterAlign: 'right' | 'left', title: string, year?: number | string, subtitlesCount?: number }
   ) => {
   return (
     <Wrapper {...props}>
-      {posterUrl && <Poster src={posterUrl} align={posterAlign} />}
+      {posterPath && <Poster src={posterPath} align={posterAlign} />}
       <Info>
         <Title><cite>{title}</cite></Title>
         <Year separator={true}>{String(year)}</Year>
-        {typeof subtitlesCount !== 'undefined' && 
+        {typeof subtitlesCount !== 'undefined' &&
           <Subtitles>more than {Number(subtitlesCount)} subtitles</Subtitles>
         }
       </Info>

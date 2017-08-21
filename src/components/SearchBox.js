@@ -1,5 +1,5 @@
 /* @flow */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { gql, graphql } from 'react-apollo';
 import { media } from '../utils/styleUtils';
@@ -53,7 +53,7 @@ const Input = styled(ResetedInput)`
     opacity: 1;
   }
 
-  &:focus, 
+  &:focus,
   &:hover {
     border-color: #bbb;
     box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
@@ -62,7 +62,7 @@ const Input = styled(ResetedInput)`
 
 const InputRight = styled.div`
   position: absolute;
-  top: 7px; 
+  top: 7px;
   right: 7px;
   bottom: 7px;
   display: flex;
@@ -112,45 +112,71 @@ const sampleResult = {
 /**
  * Search Box with Results
  */
-const SearchBox = (
-  { 
-    isLoading = false, 
-    data: { loading, movies }, 
-    ...props 
+type SearchBoxProps = {
+  isLoading?: boolean,
+  searchQuery?: string,
+  mediaItems: Array<{}>,
+  onInputChange?: (any) => void,
+  onSubmit?: (any) => void,
+};
+
+class SearchBox extends PureComponent<SearchBoxProps> {
+
+  inputChanged: (e: any) => void;
+  submitted: (e: any) => void;
+
+  static defaultProps = {
+    mediaItems: [],
   }
-) => (
-  <Wrapper {...props}>
-    <form action="/search">
-      <Box>
-        <Input
-          placeholder="Search for movies, TV series, films, etc"
-        />
-        <InputRight>
-          {loading && <SearchLoading size="25px" />}
-          <SearchButton type="submit">Search</SearchButton>
-        </InputRight>
-      </Box>
-    </form>
 
-    {true &&
-      <SearchResultsBox
-        items={movies && movies.map(d => ({ ...sampleResult, ...d }))} 
-      />
-    }
-  </Wrapper>
-);
+  constructor(props: any) {
+    super(props);
 
-const channelsListQuery = gql`
-  query ChannelsListQuery {
-    movies {
-      id
-      title
-    }
+    // Bind event handlers to context
+    this.inputChanged = this.inputChanged.bind(this);
+    this.submitted = this.submitted.bind(this);
   }
-`;
 
-const ChannelsListWithData = graphql(channelsListQuery)(SearchBox);
+  inputChanged(e: any) {
+    this.props.onInputChange &&
+      this.props.onInputChange(e);
+  }
 
+  submitted(e: any) {
+    this.props.onSubmit &&
+      this.props.onSubmit(e);
+  }
 
+  render() {
+    const {
+      isLoading = false,
+      searchQuery,
+      mediaItems,
+      onInputChange,
+      onSubmit,
+      ...props
+    } = this.props;
 
-export default ChannelsListWithData;
+    return (
+      <Wrapper {...props}>
+        <form action="/search" onSubmit={this.submitted}>
+          <Box>
+            <Input
+              placeholder="Search for movies, TV series, films, etc"
+              value={searchQuery}
+              onChange={this.inputChanged}
+            />
+            <InputRight>
+              {isLoading && <SearchLoading size="25px" />}
+              <SearchButton type="submit">Search</SearchButton>
+            </InputRight>
+          </Box>
+        </form>
+
+        <SearchResultsBox items={mediaItems} />
+      </Wrapper>
+    );
+  }
+}
+
+export default SearchBox;
