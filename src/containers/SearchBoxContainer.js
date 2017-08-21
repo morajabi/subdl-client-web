@@ -51,9 +51,9 @@ type Props = {
 )
 @graphql(moviesQuery, {
   options: (props) => ({
-    variables: { title: props.searchQuery }
+    variables: { title: props.debouncedSearchQuery }
   }),
-  skip: (props) => !!props.searchQuery || props.searchQuery === '',
+  skip: (props) => props.debouncedSearchQuery === '',
 })
 class SearchBoxContainer extends PureComponent<Props> {
 
@@ -72,7 +72,7 @@ class SearchBoxContainer extends PureComponent<Props> {
     super(props);
 
     this.inputChanged = this.inputChanged.bind(this);
-    this.debouncedInputChanged = debounce(this.debouncedInputChanged.bind(this), 1000);
+    this.debouncedInputChanged = debounce(this.debouncedInputChanged.bind(this), 300);
   }
 
   debouncedInputChanged(value: string) {
