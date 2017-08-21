@@ -17,7 +17,7 @@ import Footer from './Footer';
 import Home from './Home';
 import Search from './Search';
 import Subtitles from './Subtitles';
-import Login from './login';
+import Login from './Login';
 import Signup from './Signup';
 
 const About = ({ match }) => (
