@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
+import Badge from './Badge';
+
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
@@ -57,9 +59,25 @@ const Subtitles = styled.div`
   opacity: .4;
 `;
 
+type Props = {
+  posterPath?: any,
+  posterAlign: 'right' | 'left',
+  title: string,
+  year?: number | string,
+  subtitlesCount?: number,
+  mediaType?: 'tv' | 'movie',
+}
+
 const MovieItem = (
-  { posterPath = false, posterAlign = 'left', title, year, subtitlesCount, ...props }:
-  { posterPath?: any, posterAlign: 'right' | 'left', title: string, year?: number | string, subtitlesCount?: number }
+    {
+      posterPath = false,
+      posterAlign = 'left',
+      title,
+      year,
+      subtitlesCount,
+      mediaType,
+      ...props
+    }: Props
   ) => {
   return (
     <Wrapper {...props}>
@@ -67,8 +85,11 @@ const MovieItem = (
       <Info>
         <Title><cite>{title}</cite></Title>
         <Year separator={true}>{String(year)}</Year>
-        {typeof subtitlesCount !== 'undefined' &&
+        {subtitlesCount &&
           <Subtitles>more than {Number(subtitlesCount)} subtitles</Subtitles>
+        }
+        {mediaType && mediaType === 'tv' &&
+          <Badge style={{ marginLeft: 10 }}>{mediaType.toUpperCase()}</Badge>
         }
       </Info>
     </Wrapper>

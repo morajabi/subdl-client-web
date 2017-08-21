@@ -19,6 +19,7 @@ const moviesQuery = gql`
       title
       year
       posterPath
+      mediaType
     }
   }
 `;
