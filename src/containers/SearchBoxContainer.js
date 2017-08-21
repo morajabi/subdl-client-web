@@ -4,7 +4,9 @@ import { gql, graphql } from 'react-apollo';
 import { connect } from 'react-redux';
 import {
   setSearchQuery,
+  setDebouncedSearchQuery,
   searchQuerySelector,
+  debouncedSearchQuerySelector,
 } from '../modules/search';
 import debounce from 'lodash/debounce';
 
@@ -40,6 +42,7 @@ type Props = {
 @connect(
   (state) => ({
     searchQuery: searchQuerySelector(state),
+    debouncedSearchQuery: debouncedSearchQuerySelector(state),
   }),
   {
     setSearchQuery,
