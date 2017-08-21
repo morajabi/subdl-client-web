@@ -11,10 +11,6 @@ export const ResetedInput = styled.input`
   outline: none;
 `;
 
-const Wrapper = styled.div`
-`;
-
-
 const LabelsWrapper = styled.div`
   margin-bottom: 5px;
 `;
@@ -58,7 +54,7 @@ const LabelDescription = styled.span`
 `;
 
 const Input = ({ wrapperProps, className, label, labelDescription, description, ...props }) => (
-  <Wrapper {...wrapperProps} className={className}>
+  <div {...wrapperProps} className={className}>
 
     <LabelsWrapper>
       {label && 
@@ -77,7 +73,7 @@ const Input = ({ wrapperProps, className, label, labelDescription, description, 
     {description && 
       <InputDescription>{description}</InputDescription>
     }
-  </Wrapper>
+  </div>
 );
 
 export default Input;
