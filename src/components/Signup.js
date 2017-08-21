@@ -220,7 +220,8 @@ const Signup = () => (
           <Column>
             <Input
               type="text" 
-              label="Your Email" placeholder="e.g. you@example.com" 
+              label="Your Email" 
+              placeholder="e.g. you@example.com" 
               labelDescription="(We’ll never spam you)" 
             />
             <InputWithMargin 
@@ -235,7 +236,8 @@ const Signup = () => (
           <Column>
             <ColumnTitle>Just two more questions...</ColumnTitle>
             <InputWithMargin 
-              type="text" label="What’s your name?" 
+              type="text" 
+              label="What’s your name?" 
               placeholder="e.g. Sara Bradly" 
               labelDescription="(We’ll never spam you)" 
             />
