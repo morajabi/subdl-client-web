@@ -13,10 +13,6 @@ export const ResetedInput = styled.select`
   -webkit-apperance: none;
 `;
 
-const Wrapper = styled.div`
-`;
-
-
 const LabelsWrapper = styled.div`
   margin-bottom: 5px;
 `;
@@ -60,7 +56,7 @@ const LabelDescription = styled.span`
 `;
 
 const Select = ({ wrapperProps, className, label, labelDescription, description, placeholder, ...props }) => (
-  <Wrapper {...wrapperProps} className={className}>
+  <div {...wrapperProps} className={className}>
 
     <LabelsWrapper>
       {label && 
@@ -84,7 +80,7 @@ const Select = ({ wrapperProps, className, label, labelDescription, description,
     {description && 
       <InputDescription>{description}</InputDescription>
     }
-  </Wrapper>
+  </div>
 );
 
 export default Select;
