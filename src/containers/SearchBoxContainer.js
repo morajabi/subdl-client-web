@@ -50,6 +50,7 @@ type Props = {
   options: (props) => ({
     variables: { title: props.searchQuery }
   }),
+  skip: (props) => !!props.searchQuery || props.searchQuery === '',
 })
 class SearchBoxContainer extends PureComponent<Props> {
 
