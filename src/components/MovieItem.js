@@ -61,41 +61,37 @@ const Subtitles = styled.div`
 
 type Props = {
   posterPath?: any,
-  posterAlign: 'right' | 'left',
+  posterAlign?: 'right' | 'left',
   title: string,
-  year?: number | string,
-  subtitlesCount?: number,
-  mediaType?: 'tv' | 'movie',
+  year: number | string,
+  subtitlesCount: number,
+  mediaType: 'tv' | 'movie',
 }
 
-const MovieItem = (
-    {
-      posterPath = false,
-      posterAlign = 'left',
-      title,
-      year,
-      subtitlesCount,
-      mediaType,
-      ...props
-    }: Props
-  ) => {
-  return (
-    <Wrapper {...props}>
-      {posterPath && <Poster src={posterPath} align={posterAlign} />}
-      <Info>
-        <Title><cite>{title}</cite></Title>
-        {year &&
-          <Year separator={true}>{String(year)}</Year>
-        }
-        {subtitlesCount &&
-          <Subtitles>more than {Number(subtitlesCount)} subtitles</Subtitles>
-        }
-        {mediaType && mediaType === 'tv' &&
-          <Badge style={{ marginLeft: 10 }}>{mediaType.toUpperCase()}</Badge>
-        }
-      </Info>
-    </Wrapper>
-  );
-};
+const MovieItem = ({
+  posterPath = false,
+  posterAlign = 'left',
+  title,
+  year,
+  subtitlesCount,
+  mediaType,
+  ...props
+}: Props) => (
+  <Wrapper {...props}>
+    {posterPath && <Poster src={posterPath} align={posterAlign} />}
+    <Info>
+      <Title><cite>{title}</cite></Title>
+      {year &&
+        <Year separator>{String(year)}</Year>
+      }
+      {subtitlesCount &&
+        <Subtitles>more than {Number(subtitlesCount)} subtitles</Subtitles>
+      }
+      {mediaType && mediaType === 'tv' &&
+        <Badge style={{ marginLeft: 10 }}>{mediaType.toUpperCase()}</Badge>
+      }
+    </Info>
+  </Wrapper>
+);
 
 export default MovieItem;
