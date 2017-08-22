@@ -38,8 +38,8 @@ type Data = {
 
 type Props = {
   searchQuery?: string,
-  setSearchQuery: (query?: string) => {},
-  setDebouncedSearchQuery: (query?: string) => {},
+  setSearchQuery: (string) => {},
+  setDebouncedSearchQuery: (string) => {},
   data: Data,
 };
 
