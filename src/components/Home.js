@@ -44,9 +44,9 @@ const Home = () => (
     </header>
     <PaddedContainer>
       <Title><Bold>Find perfect subtitles</Bold> in any language for any movie</Title>
-      <Overdrive id="search-box">
-        <SearchBoxContainer loading={false} />
-      </Overdrive>
+      {/* <Overdrive id="search-box"> */}
+      <SearchBoxContainer />
+      {/* </Overdrive> */}
       <TrendingSuggestions />
     </PaddedContainer>
   </div>
