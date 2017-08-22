@@ -33,7 +33,7 @@ type Movie = {
 
 type Data = {
   loading?: boolean,
-  movie?: [] | [Movie],
+  movie?: [] | Array<Movie>,
 }
 
 type Props = {
