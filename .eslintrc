@@ -3,12 +3,13 @@
   "parserOptions": {
     "ecmaVersion": 7
   },
-  "extends": "airbnb",
+  // "extends": "airbnb",
   "plugins": [
     "flowtype"
   ],
   "rules": {
     "react/jsx-filename-extension": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "react/prop-types": 0,
   }
 }
