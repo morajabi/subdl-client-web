@@ -2,13 +2,13 @@
 import React, { PureComponent } from 'react';
 import { gql, graphql } from 'react-apollo';
 import { connect } from 'react-redux';
+import debounce from 'lodash/debounce';
 import {
   setSearchQuery,
   setDebouncedSearchQuery,
   searchQuerySelector,
   debouncedSearchQuerySelector,
 } from '../modules/search';
-import debounce from 'lodash/debounce';
 
 import SearchBox from '../components/SearchBox';
 
@@ -31,45 +31,43 @@ type Movie = {
   posterPath?: string,
 }
 
+type Data = {
+  loading?: boolean,
+  movie?: [] | [Movie],
+}
+
 type Props = {
   searchQuery?: string,
-  setSearchQuery: (query: string) => {},
-  setDebouncedSearchQuery: (query: string) => {},
-  data: {
-    loading?: boolean,
-    movie?: [] | [Movie],
-  },
+  setSearchQuery: (query?: string) => {},
+  setDebouncedSearchQuery: (query?: string) => {},
+  data: Data,
 };
 
-
 @connect(
-  (state) => ({
+  state => ({
     searchQuery: searchQuerySelector(state),
     debouncedSearchQuery: debouncedSearchQuerySelector(state),
   }),
   {
     setSearchQuery,
     setDebouncedSearchQuery,
-  }
+  },
 )
 @graphql(moviesQuery, {
-  options: (props) => ({
-    variables: { title: props.debouncedSearchQuery }
+  options: props => ({
+    variables: { title: props.debouncedSearchQuery },
   }),
-  skip: (props) => props.debouncedSearchQuery === '',
+  skip: props => props.debouncedSearchQuery === '',
 })
 class SearchBoxContainer extends PureComponent<Props> {
 
-  inputChanged: Function;
-  debouncedInputChanged: Function;
-
   static defaultProps = {
-    setSearchQuery: (e) => {},
-    setDebouncedSearchQuery: (e) => {},
+    setSearchQuery: () => {},
+    setDebouncedSearchQuery: () => {},
     data: {
       loading: false,
       movie: [],
-    }
+    },
   }
 
   constructor(props: Props) {
@@ -78,6 +76,9 @@ class SearchBoxContainer extends PureComponent<Props> {
     this.inputChanged = this.inputChanged.bind(this);
     this.debouncedInputChanged = debounce(this.debouncedInputChanged.bind(this), 300);
   }
+
+  inputChanged: Function;
+  debouncedInputChanged: Function;
 
   debouncedInputChanged(value: string) {
     this.props.setDebouncedSearchQuery(value);
@@ -97,7 +98,7 @@ class SearchBoxContainer extends PureComponent<Props> {
         movies,
       },
       searchQuery,
-      ...props,
+      ...props
     } = this.props;
 
     return (
