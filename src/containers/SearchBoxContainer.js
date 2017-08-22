@@ -34,9 +34,10 @@ type Movie = {
 type Props = {
   searchQuery?: string,
   setSearchQuery: (query: string) => {},
+  setDebouncedSearchQuery: (query: string) => {},
   data: {
     loading?: boolean,
-    movie?: [Movie],
+    movie?: [] | [Movie],
   },
 };
 
