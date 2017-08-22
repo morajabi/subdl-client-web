@@ -10,7 +10,8 @@
     "start": "webpack-dev-server --progress --profile --colors --host 0.0.0.0",
     "build": "yarn run clean && webpack --env.production --progress --profile --colors",
     "test": "jest",
-    "test:watch": "yarn test -- --watch"
+    "test:watch": "yarn test -- --watch",
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src,__{tests,mocks}__}/!(components|containers)/*.js\""
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -33,9 +34,11 @@
     "file-loader": "^0.11.1",
     "flow-bin": "^0.43.1",
     "html-webpack-plugin": "^2.28.0",
+    "husky": "^0.14.3",
     "image-webpack-loader": "^3.3.1",
     "jest": "^20.0.4",
     "lodash-webpack-plugin": "^0.11.2",
+    "prettier": "^1.5.3",
     "pug": "^2.0.0-beta11",
     "pug-loader": "^2.3.0",
     "react-hot-loader": "next",
