@@ -85,7 +85,7 @@ const MovieItem = ({
         <Year separator>{String(year)}</Year>
       }
       {subtitlesCount &&
-        <Subtitles>more than {Number(subtitlesCount)} subtitles</Subtitles>
+        <Subtitles>more than {subtitlesCount} subtitles</Subtitles>
       }
       {mediaType && mediaType === 'tv' &&
         <Badge style={{ marginLeft: 10 }}>{mediaType.toUpperCase()}</Badge>
