@@ -7,9 +7,11 @@ const Badge = styled.div`
   letter-spacing: .25px;
   font-size: 12px;
   font-weight: bold;
+  vertical-align: bottom;
+  line-height: 1;
   border-radius: 2px;
-  background: #999;
-  color: #f2f2f2;
+  background: #eee;
+  color: #999;
 `;
 
 export default Badge;
