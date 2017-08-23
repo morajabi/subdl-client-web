@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import { gql, graphql } from 'react-apollo';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import debounce from 'lodash/debounce';
 import {
   setSearchQuery,
@@ -33,16 +34,19 @@ type Movie = {
 
 type Data = {
   loading?: boolean,
-  movie?: [] | Array<Movie>,
+  movie: Array<Movie>,
 }
 
 type Props = {
+  history: any,
+  location: any,
   searchQuery?: string,
-  setSearchQuery: (string) => {},
-  setDebouncedSearchQuery: (string) => {},
-  data: Data,
+  setSearchQuery: (d?: string) => {},
+  setDebouncedSearchQuery: (d?: string) => {},
+  data: Object,
 };
 
+@withRouter
 @connect(
   state => ({
     searchQuery: searchQuerySelector(state),
@@ -62,6 +66,8 @@ type Props = {
 class SearchBoxContainer extends PureComponent<Props> {
 
   static defaultProps = {
+    history: {},
+    location: {},
     setSearchQuery: () => {},
     setDebouncedSearchQuery: () => {},
     data: {
@@ -73,10 +79,12 @@ class SearchBoxContainer extends PureComponent<Props> {
   constructor(props: Props) {
     super(props);
 
+    this.submitted = this.submitted.bind(this);
     this.inputChanged = this.inputChanged.bind(this);
     this.debouncedInputChanged = debounce(this.debouncedInputChanged.bind(this), 300);
   }
 
+  submitted: Function;
   inputChanged: Function;
   debouncedInputChanged: Function;
 
@@ -90,6 +98,12 @@ class SearchBoxContainer extends PureComponent<Props> {
     this.debouncedInputChanged(e.target.value);
   }
 
+  submitted(e: any) {
+    e.preventDefault();
+    this.props.history.push('/search');
+    return false;
+  }
+
   render() {
     const {
       setSearchQuery,
@@ -98,6 +112,8 @@ class SearchBoxContainer extends PureComponent<Props> {
         movies,
       },
       searchQuery,
+      location,
+      history,
       ...props
     } = this.props;
 
@@ -107,7 +123,9 @@ class SearchBoxContainer extends PureComponent<Props> {
         searchQuery={searchQuery}
         isLoading={loading}
         mediaItems={movies}
-        onInputChange={this.inputChanged} />
+        onInputChange={this.inputChanged}
+        onSubmit={this.submitted}
+      />
     );
   }
 }

@@ -138,13 +138,11 @@ class SearchBox extends PureComponent<SearchBoxProps> {
   }
 
   inputChanged(e: any) {
-    this.props.onInputChange &&
-      this.props.onInputChange(e);
+    this.props.onInputChange && this.props.onInputChange(e);
   }
 
   submitted(e: any) {
-    this.props.onSubmit &&
-      this.props.onSubmit(e);
+    return this.props.onSubmit && this.props.onSubmit(e);
   }
 
   render() {

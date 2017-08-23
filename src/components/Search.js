@@ -8,7 +8,7 @@ import { v4 } from 'uuid';
 
 import Container from './Container';
 import TopNav from './TopNav';
-import SearchBox from './SearchBox';
+import SearchBoxContainer from '../containers/SearchBoxContainer';
 import MovieItem from './MovieItem';
 import NoMatch from './NoMatch';
 
@@ -72,16 +72,16 @@ const Search = () => (
       <TopNav searchBar={false} />
     </header>
     <PaddedContainer>
-      <Overdrive id="search-box8">
-        <SearchBox />
-      </Overdrive>
+      {/* <Overdrive id="search-box8"> */}
+      <SearchBoxContainer />
+      {/* </Overdrive> */}
 
       <DidYouMean>Did you mean: <DidYouMeanLink to="/">Thor 2</DidYouMeanLink></DidYouMean>
       {/*<SearchDescription>All movies match your query:</SearchDescription>
 
       <MovieList>
         <MovieRow to="/">
-          <MovieItemWithPoster 
+          <MovieItemWithPoster
             title="Guardians Of The Galaxy"
             year={2015}
             posterUrl={loganPoster}
@@ -90,16 +90,16 @@ const Search = () => (
         </MovieRow>
 
         <MovieRow to="/">
-          <MovieItemWithPoster 
+          <MovieItemWithPoster
             title="Captian America: The Winter Soldier"
             year={2016}
             posterUrl={winterSoldierPoster}
             subtitlesCount={720}
           />
         </MovieRow>
-        
+
         <MovieRow to="/">
-          <MovieItemWithPoster 
+          <MovieItemWithPoster
             title="Arrival"
             year={2017}
             posterUrl={arrivalPoster}
@@ -109,7 +109,7 @@ const Search = () => (
       </MovieList>*/}
 
       <PaddedNoMatch query="Rouge Onee" />
-      
+
     </PaddedContainer>
   </div>
 );
