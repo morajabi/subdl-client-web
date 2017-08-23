@@ -11,7 +11,12 @@
     "build": "yarn run clean && webpack --env.production --progress --profile --colors",
     "test": "jest",
     "test:watch": "yarn test -- --watch",
-    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src,__{tests,mocks}__}/!(components|containers)/*.js\""
+    "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src,__{tests,mocks}__}/!(components|containers)/*.js\"",
+    "prettier:all": "prettier --single-quote --trailing-comma es5 --write",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "{src,__{tests,mocks}__}/!(components|containers)/*.js": ["yarn run prettier:all", "git add"]
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -42,6 +47,7 @@
     "husky": "^0.14.3",
     "image-webpack-loader": "^3.3.1",
     "jest": "^20.0.4",
+    "lint-staged": "^4.0.3",
     "lodash-webpack-plugin": "^0.11.2",
     "prettier": "^1.5.3",
     "pug": "^2.0.0-beta11",
