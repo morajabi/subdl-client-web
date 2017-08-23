@@ -21,6 +21,12 @@
       "git add"
     ]
   },
+  "jest": {
+    "transform": {
+      "\\.(gql|graphql)$": "jest-transform-graphql",
+      ".*": "babel-jest"
+    }
+  },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.1",
@@ -50,6 +56,7 @@
     "husky": "^0.14.3",
     "image-webpack-loader": "^3.3.1",
     "jest": "^20.0.4",
+    "jest-transform-graphql": "^2.1.0",
     "lint-staged": "^4.0.3",
     "lodash-webpack-plugin": "^0.11.2",
     "prettier": "^1.5.3",
