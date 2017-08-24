@@ -114,7 +114,7 @@ class Search extends PureComponent<Props> {
     );
   }
 
-  getSearchQuery(location) {
+  getSearchQuery(location: Object) {
     return qs.parse(location.search.substring(1)).q || '';
   }
 }
