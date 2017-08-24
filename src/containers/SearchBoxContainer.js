@@ -10,6 +10,7 @@ import {
   searchQuerySelector,
   debouncedSearchQuerySelector,
 } from '../modules/search';
+import { parseUrlQuery } from '../utils';
 
 import SearchBox from '../components/SearchBox';
 
@@ -125,7 +126,11 @@ class SearchBoxContainer extends PureComponent<Props, State> {
   }
 
   componentDidMount() {
+    const q: string = parseUrlQuery(this.props.location).q;
 
+    if (q) {
+      this.props.setSearchQuery(q);
+    }
   }
 
   debouncedInputChanged(value: string) {
