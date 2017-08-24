@@ -1,12 +1,15 @@
 import reducer, {
   SEARCH_QUERY_CHANGED,
   DEBOUNCED_SEARCH_QUERY_CHANGED,
+  SEARCH_PAGE_QUERY_CHANGED,
   // action creators
   setSearchQuery,
   setDebouncedSearchQuery,
+  setSearchPageQuery,
   // selectors
   searchQuerySelector,
   debouncedSearchQuerySelector,
+  searchPageQuerySelector,
 } from '../search';
 
 describe('Search [redux module]', () => {
@@ -24,6 +27,15 @@ describe('Search [redux module]', () => {
       it('should generate correct action', () => {
         expect(setDebouncedSearchQuery('query')).toEqual({
           type: DEBOUNCED_SEARCH_QUERY_CHANGED,
+          value: 'query',
+        });
+      });
+    });
+
+    describe('searchPageQuery', () => {
+      it('should generate correct action', () => {
+        expect(setSearchPageQuery('query')).toEqual({
+          type: SEARCH_PAGE_QUERY_CHANGED,
           value: 'query',
         });
       });
@@ -46,6 +58,14 @@ describe('Search [redux module]', () => {
         expect(debouncedSearchQuerySelector(state)).toBe('query');
       });
     });
+
+    describe('searchPageQuerySelector', () => {
+      it('should return correct value from state', () => {
+        const state = { search: { searchPageQuery: 'query' } };
+
+        expect(searchPageQuerySelector(state)).toBe('query');
+      });
+    });
   });
 
   describe('reducer', () => {
@@ -53,6 +73,7 @@ describe('Search [redux module]', () => {
       expect(reducer(undefined, {})).toEqual({
         searchQuery: '',
         debouncedSearchQuery: '',
+        searchPageQuery: '',
       });
     });
 
@@ -72,6 +93,16 @@ describe('Search [redux module]', () => {
         value: 'new query',
       };
       const nextState = { debouncedSearchQuery: 'new query' };
+
+      expect(reducer(undefined, action)).toMatchObject(nextState);
+    });
+
+    it('should change searchPageQuery value correctly on appropriate action', () => {
+      const action = {
+        type: SEARCH_PAGE_QUERY_CHANGED,
+        value: 'new query',
+      };
+      const nextState = { searchPageQuery: 'new query' };
 
       expect(reducer(undefined, action)).toMatchObject(nextState);
     });
