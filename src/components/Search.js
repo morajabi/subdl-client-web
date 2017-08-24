@@ -13,7 +13,7 @@ import TopNav from './TopNav';
 import SearchBoxContainer from '../containers/SearchBoxContainer';
 import MovieItem from './MovieItem';
 import NoMatch from './NoMatch';
-import DidYouMean from './DidYouMean';
+import DidYouMeanContainer from '../containers/DidYouMeanContainer';
 
 import loganPoster from '../assets/images/demo/logan-poster.jpg';
 import arrivalPoster from '../assets/images/demo/arrival-poster.jpg';
@@ -75,7 +75,7 @@ class Search extends PureComponent<Props> {
           <SearchBoxContainer />
           {/* </Overdrive> */}
 
-          <DidYouMean query={searchQuery} />
+          <DidYouMeanContainer />
           {/*<SearchDescription>All movies match your query:</SearchDescription>
 
           <MovieList>

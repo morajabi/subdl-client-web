@@ -1,0 +1,3 @@
+query DidYouMean($title: String!) {
+  didYouMean(title: $title)
+}
