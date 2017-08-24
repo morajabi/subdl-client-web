@@ -97,24 +97,6 @@ class SearchBoxContainer extends PureComponent<Props, State> {
   inputChanged: Function;
   debouncedInputChanged: Function;
 
-  debouncedInputChanged(value: string) {
-    this.props.setDebouncedSearchQuery(value);
-  }
-
-  inputChanged(e: any) {
-    e.persist();
-    this.setState({ showResults: true });
-    this.props.setSearchQuery(e.target.value);
-    this.debouncedInputChanged(e.target.value);
-  }
-
-  submitted(e: any) {
-    e.preventDefault();
-    this.props.history.push(`/search?q=${this.props.searchQuery}`);
-    this.setState({ showResults: false });
-    return false;
-  }
-
   render() {
     const {
       setSearchQuery,
@@ -140,6 +122,28 @@ class SearchBoxContainer extends PureComponent<Props, State> {
         onSubmit={this.submitted}
       />
     );
+  }
+
+  componentDidMount() {
+
+  }
+
+  debouncedInputChanged(value: string) {
+    this.props.setDebouncedSearchQuery(value);
+  }
+
+  inputChanged(e: any) {
+    e.persist();
+    this.setState({ showResults: true });
+    this.props.setSearchQuery(e.target.value);
+    this.debouncedInputChanged(e.target.value);
+  }
+
+  submitted(e: any) {
+    e.preventDefault();
+    this.props.history.push(`/search?q=${this.props.searchQuery}`);
+    this.setState({ showResults: false });
+    return false;
   }
 }
 
