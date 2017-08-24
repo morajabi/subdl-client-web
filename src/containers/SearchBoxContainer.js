@@ -126,6 +126,7 @@ class SearchBoxContainer extends PureComponent<Props, State> {
       history,
       ...props
     } = this.props;
+    const { showResults } = this.state;
 
     return (
       <SearchBox
