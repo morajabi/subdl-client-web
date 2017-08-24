@@ -40,10 +40,14 @@ type Data = {
 type Props = {
   history: any,
   location: any,
-  searchQuery?: string,
+  searchQuery: string,
   setSearchQuery: (d?: string) => {},
   setDebouncedSearchQuery: (d?: string) => {},
   data: Object,
+};
+
+type State = {
+  showResults: boolean,
 };
 
 @withRouter
@@ -63,17 +67,22 @@ type Props = {
   }),
   skip: props => props.debouncedSearchQuery === '',
 })
-class SearchBoxContainer extends PureComponent<Props> {
+class SearchBoxContainer extends PureComponent<Props, State> {
 
   static defaultProps = {
     history: {},
     location: {},
+    searchQuery: '',
     setSearchQuery: () => {},
     setDebouncedSearchQuery: () => {},
     data: {
       loading: false,
       movie: [],
     },
+  }
+
+  state = {
+    showResults: false,
   }
 
   constructor(props: Props) {
@@ -100,7 +109,8 @@ class SearchBoxContainer extends PureComponent<Props> {
 
   submitted(e: any) {
     e.preventDefault();
-    this.props.history.push('/search');
+    this.props.history.push(`/search?q=${this.props.searchQuery}`);
+    this.setState({ showResults: false });
     return false;
   }
 
@@ -120,6 +130,7 @@ class SearchBoxContainer extends PureComponent<Props> {
     return (
       <SearchBox
         {...props}
+        showResults={showResults}
         searchQuery={searchQuery}
         isLoading={loading}
         mediaItems={movies}

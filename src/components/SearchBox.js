@@ -114,6 +114,7 @@ const sampleResult = {
  */
 type SearchBoxProps = {
   isLoading?: boolean,
+  showResults?: boolean,
   searchQuery?: string,
   mediaItems: Array<{}>,
   onInputChange?: (any) => void,
@@ -126,6 +127,8 @@ class SearchBox extends PureComponent<SearchBoxProps> {
   submitted: (e: any) => void;
 
   static defaultProps = {
+    isLoading: false,
+    showResults: true,
     mediaItems: [],
   }
 
@@ -147,7 +150,8 @@ class SearchBox extends PureComponent<SearchBoxProps> {
 
   render() {
     const {
-      isLoading = false,
+      isLoading,
+      showResults,
       searchQuery,
       mediaItems,
       onInputChange,
@@ -171,7 +175,7 @@ class SearchBox extends PureComponent<SearchBoxProps> {
           </Box>
         </form>
 
-        <SearchResultsBox items={mediaItems} />
+        {showResults && <SearchResultsBox items={mediaItems} />}
       </Wrapper>
     );
   }
