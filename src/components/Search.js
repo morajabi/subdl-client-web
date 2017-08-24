@@ -1,16 +1,19 @@
 /* @flow */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Overdrive from 'react-overdrive';
-import { map } from 'lodash';
+import map from 'lodash/map';
 import { v4 } from 'uuid';
+import qs from 'qs';
 
 import Container from './Container';
 import TopNav from './TopNav';
 import SearchBoxContainer from '../containers/SearchBoxContainer';
 import MovieItem from './MovieItem';
 import NoMatch from './NoMatch';
+import DidYouMean from './DidYouMean';
 
 import loganPoster from '../assets/images/demo/logan-poster.jpg';
 import arrivalPoster from '../assets/images/demo/arrival-poster.jpg';
@@ -51,67 +54,69 @@ const SearchDescription = styled.div`
   color: #555;
 `;
 
-const DidYouMean = styled.div`
-  margin: 15px 0 0 0;
-  font-size: 1.2em;
-  font-weight: normal;
-  color: #09b797;
-`;
-
-const DidYouMeanLink = styled(Link)`
-  font-weight: bold;
-`;
-
 const PaddedNoMatch = styled(NoMatch)`
   margin-top: 30px;
 `;
 
-const Search = () => (
-  <div>
-    <header>
-      <TopNav searchBar={false} />
-    </header>
-    <PaddedContainer>
-      {/* <Overdrive id="search-box8"> */}
-      <SearchBoxContainer />
-      {/* </Overdrive> */}
+type Props = { location: any, history: any };
 
-      <DidYouMean>Did you mean: <DidYouMeanLink to="/">Thor 2</DidYouMeanLink></DidYouMean>
-      {/*<SearchDescription>All movies match your query:</SearchDescription>
+class Search extends PureComponent<Props> {
+  render() {
+    const { location, history } = this.props;
+    const searchQuery = this.getSearchQuery(location);
 
-      <MovieList>
-        <MovieRow to="/">
-          <MovieItemWithPoster
-            title="Guardians Of The Galaxy"
-            year={2015}
-            posterUrl={loganPoster}
-            subtitlesCount={98}
-          />
-        </MovieRow>
+    return (
+      <div>
+        <header>
+          <TopNav searchBar={false} />
+        </header>
+        <PaddedContainer>
+          {/* <Overdrive id="search-box8"> */}
+          <SearchBoxContainer />
+          {/* </Overdrive> */}
 
-        <MovieRow to="/">
-          <MovieItemWithPoster
-            title="Captian America: The Winter Soldier"
-            year={2016}
-            posterUrl={winterSoldierPoster}
-            subtitlesCount={720}
-          />
-        </MovieRow>
+          <DidYouMean query={searchQuery} />
+          {/*<SearchDescription>All movies match your query:</SearchDescription>
 
-        <MovieRow to="/">
-          <MovieItemWithPoster
-            title="Arrival"
-            year={2017}
-            posterUrl={arrivalPoster}
-            subtitlesCount={345}
-          />
-        </MovieRow>
-      </MovieList>*/}
+          <MovieList>
+            <MovieRow to="/">
+              <MovieItemWithPoster
+                title="Guardians Of The Galaxy"
+                year={2015}
+                posterUrl={loganPoster}
+                subtitlesCount={98}
+              />
+            </MovieRow>
 
-      <PaddedNoMatch query="Rouge Onee" />
+            <MovieRow to="/">
+              <MovieItemWithPoster
+                title="Captian America: The Winter Soldier"
+                year={2016}
+                posterUrl={winterSoldierPoster}
+                subtitlesCount={720}
+              />
+            </MovieRow>
 
-    </PaddedContainer>
-  </div>
-);
+            <MovieRow to="/">
+              <MovieItemWithPoster
+                title="Arrival"
+                year={2017}
+                posterUrl={arrivalPoster}
+                subtitlesCount={345}
+              />
+            </MovieRow>
+          </MovieList>*/}
+
+          <PaddedNoMatch query="Rouge Onee" />
+
+        </PaddedContainer>
+      </div>
+    );
+  }
+
+  getSearchQuery(location) {
+    return qs.parse(location.search.substring(1)).q || '';
+  }
+}
 
 export default Search;
