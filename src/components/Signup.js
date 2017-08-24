@@ -3,12 +3,10 @@ import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { media } from '../utils/styleUtils';
 
-
 import Container from './Container';
 import TopNav from './TopNav';
 import Input from './Input';
 import Select from './Select';
-
 
 const PaddedContainer = styled(Container)`
   padding-top: 100px;
