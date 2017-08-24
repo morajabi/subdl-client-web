@@ -33,7 +33,7 @@ const Text = styled.div`
 const Title = styled.h1`
   font-weight: 300;
   font-size: 1.9em;
-  
+
   ${media.to.medium`
     font-size: 1.5em;
   `}
@@ -59,15 +59,16 @@ const NoMatch = ({ query, ...props }: { query: string }) => (
       <Title><strong>Sorry</strong>, there's no match for "{query}".</Title>
       <p>
         You may want to do one of following:
-        <ToDoList>
-          <ToDo>
-            👀 &nbsp;Duble check whether <strong>"{query}"</strong> is correct?&nbsp;
-            <a href={getSearchLink(query)} target="_blank">Let's Google it →</a>
-          </ToDo>
-          <ToDo>🤔 &nbsp;Is this a movie, serie, short film or music video?</ToDo>
-          <ToDo>😞 &nbsp;Try again. Maybe it's our fualt. </ToDo>
-        </ToDoList>
       </p>
+
+      <ToDoList>
+        <ToDo>
+          👀 &nbsp;Duble check whether <strong>"{query}"</strong> is correct?&nbsp;
+          <a href={getSearchLink(query)} target="_blank">Let's Google it →</a>
+        </ToDo>
+        <ToDo>🤔 &nbsp;Is this a movie, serie, short film or music video?</ToDo>
+        <ToDo>😞 &nbsp;Try again. Maybe it's our fualt. </ToDo>
+      </ToDoList>
     </Text>
     <Image>
       <img width="100%" src={popCornFell} />
