@@ -103,6 +103,7 @@ class SearchBoxContainer extends PureComponent<Props, State> {
 
   inputChanged(e: any) {
     e.persist();
+    this.setState({ showResults: true });
     this.props.setSearchQuery(e.target.value);
     this.debouncedInputChanged(e.target.value);
   }
