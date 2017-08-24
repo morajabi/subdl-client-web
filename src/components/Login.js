@@ -88,6 +88,7 @@ const InputWithMargin = styled(Input)`
   margin-top: 20px;
 `;
 
+
 const Header = () => (
   <Center>
     <TitleLine />
@@ -98,7 +99,6 @@ const Header = () => (
     </Forward>
   </Center>
 );
-
 
 const ForgetPassword = () => (
   <ForgetLink>
