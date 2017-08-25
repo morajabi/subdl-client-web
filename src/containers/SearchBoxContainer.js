@@ -126,7 +126,7 @@ class SearchBoxContainer extends PureComponent<Props, State> {
   }
 
   componentDidMount() {
-    const q: string = parseUrlQuery(this.props.location).q;
+    const q: string = parseUrlQuery(this.props.location).q || '';
 
     if (q) {
       this.props.setSearchQuery(q);

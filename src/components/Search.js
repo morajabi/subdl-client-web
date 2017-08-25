@@ -7,6 +7,7 @@ import Overdrive from 'react-overdrive';
 import map from 'lodash/map';
 import { v4 } from 'uuid';
 import qs from 'qs';
+import { parseUrlQuery } from '../utils';
 
 import Container from './Container';
 import TopNav from './TopNav';
@@ -63,7 +64,7 @@ type Props = { location: any, history: any };
 class Search extends PureComponent<Props> {
   render() {
     const { location, history } = this.props;
-    const searchQuery = this.getSearchQuery(location);
+    const searchQuery = parseUrlQuery(location).q || '';
 
     return (
       <div>
@@ -112,10 +113,6 @@ class Search extends PureComponent<Props> {
         </PaddedContainer>
       </div>
     );
-  }
-
-  getSearchQuery(location: Object) {
-    return qs.parse(location.search.substring(1)).q || '';
   }
 }
 
