@@ -2,12 +2,14 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { graphql } from 'react-apollo';
 import { withRouter } from 'react-router';
 import Overdrive from 'react-overdrive';
 import map from 'lodash/map';
 import { v4 } from 'uuid';
 import qs from 'qs';
 import { parseUrlQuery } from '../utils';
+import MediaItemsQuery from '../graphql/MediaItemsQuery.gql';
 
 import Container from './Container';
 import TopNav from './TopNav';
@@ -35,7 +37,7 @@ const MovieRow = styled(Link)`
   color: #333;
 
   &:nth-child(2n+1) {
-    background: #f4f4f4;
+    background: #f6f6f6;
   }
 
   &:hover {
@@ -59,13 +61,37 @@ const PaddedNoMatch = styled(NoMatch)`
   margin-top: 30px;
 `;
 
-type Props = { location: any, history: any };
+type Props = { location: any, history: any, data: Object };
 
+@graphql(MediaItemsQuery, {
+  options: props => ({
+    variables: { title: parseUrlQuery(props.location).q },
+  }),
+  skip: props => !!parseUrlQuery(props.location).q,
+})
 class Search extends PureComponent<Props> {
-  render() {
-    const { location, history } = this.props;
-    const searchQuery = parseUrlQuery(location).q || '';
 
+  static defaultProps = {
+    history: {},
+    location: {},
+    data: {
+      loading: false,
+      movie: [],
+    },
+  }
+
+  render() {
+    const {
+      location,
+      history,
+      data: {
+        loading,
+        movies,
+        error,
+      }
+    } = this.props;
+    const searchQuery = parseUrlQuery(location).q || '';
+    console.log(error);
     return (
       <div>
         <header>
@@ -75,16 +101,15 @@ class Search extends PureComponent<Props> {
           {/* <Overdrive id="search-box8"> */}
           <SearchBoxContainer />
           {/* </Overdrive> */}
-
           <DidYouMeanContainer />
-          {/*<SearchDescription>All movies match your query:</SearchDescription>
+          <SearchDescription>All movies match your query:</SearchDescription>
 
           <MovieList>
             <MovieRow to="/">
               <MovieItemWithPoster
                 title="Guardians Of The Galaxy"
                 year={2015}
-                posterUrl={loganPoster}
+                posterPath={loganPoster}
                 subtitlesCount={98}
               />
             </MovieRow>
@@ -93,7 +118,7 @@ class Search extends PureComponent<Props> {
               <MovieItemWithPoster
                 title="Captian America: The Winter Soldier"
                 year={2016}
-                posterUrl={winterSoldierPoster}
+                posterPath={winterSoldierPoster}
                 subtitlesCount={720}
               />
             </MovieRow>
@@ -102,13 +127,12 @@ class Search extends PureComponent<Props> {
               <MovieItemWithPoster
                 title="Arrival"
                 year={2017}
-                posterUrl={arrivalPoster}
-                subtitlesCount={345}
+                posterPath={arrivalPoster}
               />
             </MovieRow>
-          </MovieList>*/}
+          </MovieList>
 
-          <PaddedNoMatch query="Rouge Onee" />
+          {/* <PaddedNoMatch query="Rouge Onee" /> */}
 
         </PaddedContainer>
       </div>
