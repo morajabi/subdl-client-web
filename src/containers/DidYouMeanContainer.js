@@ -4,6 +4,7 @@ import { gql, graphql } from 'react-apollo';
 import { withRouter } from 'react-router';
 import qs from 'qs';
 import DidYouMeanQuery from '../graphql/DidYouMean.gql';
+import { parseUrlQuery } from '../utils';
 
 import DidYouMean from '../components/DidYouMean';
 
@@ -17,9 +18,9 @@ type Props = {
 @withRouter
 @graphql(DidYouMeanQuery, {
   options: props => ({
-    variables: { title: getSearchQuery(props.location) },
+    variables: { title: parseUrlQuery(props.location).q || '' },
   }),
-  skip: props => getSearchQuery(props.location) === '',
+  skip: props => !!parseUrlQuery(props.location).q,
 })
 class DidYouMeanContainer extends PureComponent<Props> {
 
@@ -50,7 +51,3 @@ class DidYouMeanContainer extends PureComponent<Props> {
 }
 
 export default DidYouMeanContainer;
-
-function getSearchQuery(location: Object) {
-  return qs.parse(location.search.substring(1)).q || '';
-}
