@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Poster = styled.img`
-  display: block;
+const PosterWrapper = styled.div`
+  width: ${props => props.defaultPoster ? '75px' : 'auto'};
   height: 100%;
   ${props => props.align === 'right' ? css`
     order: 1;
@@ -20,6 +20,11 @@ const Poster = styled.img`
   ` : css`
     margin-right: 20px;
   `}
+`;
+
+const Poster = styled.img`
+  height: 100%;
+  display: block;
 `;
 
 const Info = styled.div`
@@ -62,6 +67,7 @@ const Subtitles = styled.div`
 type Props = {
   posterPath?: any,
   posterAlign?: 'right' | 'left',
+  defaultPoster?: boolean,
   title: string,
   year: number | string,
   subtitlesCount: number,
@@ -71,6 +77,7 @@ type Props = {
 const MovieItem = ({
   posterPath = false,
   posterAlign = 'left',
+  defaultPoster = false,
   title,
   year,
   subtitlesCount,
@@ -78,7 +85,9 @@ const MovieItem = ({
   ...props
 }: Props) => (
   <Wrapper {...props}>
-    {posterPath && <Poster src={posterPath} align={posterAlign} />}
+    <PosterWrapper align={posterAlign} defaultPoster={defaultPoster}>
+      {posterPath && <Poster src={posterPath} />}
+    </PosterWrapper>
     <Info>
       <Title><cite>{title}</cite></Title>
       {year &&
