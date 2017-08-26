@@ -65,9 +65,13 @@ type Props = { location: any, history: any, data: Object };
 
 @graphql(MediaItemsQuery, {
   options: props => ({
-    variables: { title: parseUrlQuery(props.location).q },
+    variables: {
+      title: parseUrlQuery(props.location).q,
+      limit: 10,
+      autoCorrect: false,
+    },
   }),
-  skip: props => !!parseUrlQuery(props.location).q,
+  skip: props => !parseUrlQuery(props.location).q,
 })
 class Search extends PureComponent<Props> {
 
@@ -85,13 +89,13 @@ class Search extends PureComponent<Props> {
       location,
       history,
       data: {
-        loading,
         movies,
+        loading,
         error,
       }
     } = this.props;
     const searchQuery = parseUrlQuery(location).q || '';
-    console.log(error);
+
     return (
       <div>
         <header>
@@ -102,37 +106,34 @@ class Search extends PureComponent<Props> {
           <SearchBoxContainer />
           {/* </Overdrive> */}
           <DidYouMeanContainer />
-          <SearchDescription>All movies match your query:</SearchDescription>
 
-          <MovieList>
-            <MovieRow to="/">
-              <MovieItemWithPoster
-                title="Guardians Of The Galaxy"
-                year={2015}
-                posterPath={loganPoster}
-                subtitlesCount={98}
-              />
-            </MovieRow>
+          {error && movies.length === 0 &&
+            <PaddedNoMatch query="Rouge Onee" />
+          }
 
-            <MovieRow to="/">
-              <MovieItemWithPoster
-                title="Captian America: The Winter Soldier"
-                year={2016}
-                posterPath={winterSoldierPoster}
-                subtitlesCount={720}
-              />
-            </MovieRow>
+          {loading &&
+            <SearchDescription>Wait a moment, searching media items...</SearchDescription>
+          }
 
-            <MovieRow to="/">
-              <MovieItemWithPoster
-                title="Arrival"
-                year={2017}
-                posterPath={arrivalPoster}
-              />
-            </MovieRow>
-          </MovieList>
+          {!loading && movies.length > 0 &&
+            <div>
+              <SearchDescription>All media items matching your query:</SearchDescription>
+              <MovieList>
+                {movies.map(mi => (
+                  <MovieRow to="/">
+                    <MovieItemWithPoster
+                      title={mi.title}
+                      year={mi.year}
+                      posterPath={mi.posterPath}
+                      defaultPoster={true}
+                      subtitlesCount={null}
+                    />
+                  </MovieRow>
+                ))}
+              </MovieList>
+            </div>
+          }
 
-          {/* <PaddedNoMatch query="Rouge Onee" /> */}
 
         </PaddedContainer>
       </div>
