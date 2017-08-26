@@ -126,11 +126,26 @@ class SearchBoxContainer extends PureComponent<Props, State> {
   }
 
   componentDidMount() {
-    const { location, searchQuery, setSearchQuery } = this.props;
+    this.updateStoreToMatchUrl(this.props.location);
+  }
+
+  componentWillReceiveProps(nextProps: Props) {
+    if (this.props.location.search === nextProps.location.search) {
+      return;
+    }
+
+    this.updateStoreToMatchUrl(nextProps.location);
+  }
+
+  /**
+   * Update redux store when URL query `q` changes
+   * @param {ReactRouterLocation} location
+   */
+  updateStoreToMatchUrl(location: Object) {
     const q: string = parseUrlQuery(location).q || '';
 
-    if (q && q !== searchQuery) {
-      setSearchQuery(q);
+    if (q) {
+      this.props.setSearchQuery(q);
     }
   }
 
