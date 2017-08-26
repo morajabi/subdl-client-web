@@ -20,14 +20,14 @@ type Props = {
   options: props => ({
     variables: { title: parseUrlQuery(props.location).q || '' },
   }),
-  skip: props => !!parseUrlQuery(props.location).q,
+  skip: props => !parseUrlQuery(props.location).q,
 })
 class DidYouMeanContainer extends PureComponent<Props> {
 
   static defaultProps = {
     history: null,
     location: null,
-    data: null,
+    data: {},
   }
 
   constructor(props: Props) {
