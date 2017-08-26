@@ -13,8 +13,9 @@ const Wrapper = styled.div`
 `;
 
 const PosterWrapper = styled.div`
-  width: ${props => props.defaultPoster ? '75px' : 'auto'};
+  width: ${props => props.defaultPoster ? '73.33px' : 'auto'};
   height: 100%;
+  overflow: hidden;
   ${props => props.align === 'right' ? css`
     order: 1;
     margin-left: 20px;
