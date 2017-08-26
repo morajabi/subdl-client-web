@@ -1,7 +1,8 @@
 /* @flow */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled, { css } from 'styled-components';
 
+import IsImageLoaded from './IsImageLoaded';
 import Badge from './Badge';
 
 const Wrapper = styled.div`
@@ -20,6 +21,16 @@ const PosterWrapper = styled.div`
   ` : css`
     margin-right: 20px;
   `}
+
+  background: ${props => !props.imageLoaded ?
+    `repeating-linear-gradient(
+      45deg,
+      #fff,
+      #fff 10px,
+      #f6f6f6 10px,
+      #f6f6f6 20px
+    )` : 'none'
+  };
 `;
 
 const Poster = styled.img`
@@ -85,9 +96,18 @@ const MovieItem = ({
   ...props
 }: Props) => (
   <Wrapper {...props}>
-    <PosterWrapper align={posterAlign} defaultPoster={defaultPoster}>
-      {posterPath && <Poster src={posterPath} />}
-    </PosterWrapper>
+    <IsImageLoaded>
+      {(imageLoaded, onImageLoad) => (
+        <PosterWrapper
+          align={posterAlign}
+          defaultPoster={defaultPoster}
+          imageLoaded={imageLoaded}
+        >
+          {posterPath && <Poster src={posterPath} onLoad={onImageLoad} />}
+        </PosterWrapper>
+      )}
+    </IsImageLoaded>
+
     <Info>
       <Title><cite>{title}</cite></Title>
       {year &&
