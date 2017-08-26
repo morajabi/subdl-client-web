@@ -1,4 +1,4 @@
-query MediaItemsQuery($title: String!, $limit: Boolean, $autoCorrect: Boolean) {
+query MediaItemsQuery($title: String!, $limit: Int, $autoCorrect: Boolean) {
   movies(title: $title, limit: $limit, autoCorrect: $autoCorrect) {
     SubdlId
     title
