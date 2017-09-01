@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components';
 export const ResetedButton: any = styled.button`
   border: none;
   background: none;
-  outline: none;
 `;
 
 const BaseButton = styled(ResetedButton)`
@@ -45,7 +44,7 @@ const Icon = styled.span`
   `}
 
   font-weight: bold;
-  
+
 `;
 
 export const Button = (
@@ -53,13 +52,13 @@ export const Button = (
   { children: any, icon?: any, iconPosition?: 'right' | 'left', bgColor?: string, textColor?: string, onClick?: Function }
   ) => {
   return (
-    <YellowButton 
+    <YellowButton
       {...props}
       bgColor={bgColor}
       onClick={onClick}
-    > 
+    >
       <FlexWrapper>
-        {icon && 
+        {icon &&
           <Icon position={iconPosition}>{icon}</Icon>
         }
         <Text>{children}</Text>
