@@ -85,7 +85,7 @@ const MovieTitle = styled.h1`
   font-size: 36px;
   font-weight: bold;
   letter-spacing: .8px;
-  
+
   ${smallMedia`
     font-size: 28px;
   `}
@@ -228,8 +228,8 @@ const Subtitles = (props: any) => (
     <MovieCover>
 
       <header>
-        <TopNav 
-          searchBar={false} 
+        <TopNav
+          searchBar={false}
           currentColor={true}
         />
       </header>
@@ -237,8 +237,8 @@ const Subtitles = (props: any) => (
       <PaddedContainer>
         <Movie>
           <MovieLeft>
-            <Poster 
-              src={doctorStrangePoster} 
+            <Poster
+              src={doctorStrangePoster}
               data-grade={true}
             />
           </MovieLeft>
