@@ -13,7 +13,9 @@
     "test:watch": "yarn test -- --watch",
     "prettier": "prettier --single-quote --trailing-comma es5 --write \"{src,__{tests,mocks}__}/!(components|containers)/*.js\"",
     "prettier:all": "prettier --single-quote --trailing-comma es5 --write",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "lint-staged": {
     "{src,__{tests,mocks}__}/!(components|containers)/*.js": [
@@ -67,7 +69,10 @@
     "style-loader": "^0.16.1",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2",
-    "webpack-hot-middleware": "^2.18.0"
+    "webpack-hot-middleware": "^2.18.0",
+    "@storybook/react": "^3.2.8",
+    "@storybook/addon-actions": "^3.2.6",
+    "@storybook/addon-links": "^3.2.6"
   },
   "dependencies": {
     "apollo-client": "^1.9.1",
