@@ -112,6 +112,13 @@ module.exports = (env = {}) => {
       ]
     },
 
+    // resolve: {
+    //   alias: {
+    //     'react': 'preact-compat',
+    //     'react-dom': 'preact-compat',
+    //     'preact-compat': 'preact-compat/dist/preact-compat',
+    //   }
+    // },
 
     devServer: (() => {
       if (isProduction) {
