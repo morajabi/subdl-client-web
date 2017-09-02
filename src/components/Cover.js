@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Grade from 'grade-js';
 
-class Cover extends Component {
+class Cover extends Component<{}> {
   constructor(p: any) {
     super(p);
     this.imageQuery = 'img[data-grade]';
@@ -24,16 +24,18 @@ class Cover extends Component {
       if (this.img.complete) {
         this.initGrade();
       } else {
-        this.onImageLoad = this.img.addEventListener('load', (() => {
-          this.initGrade();
-        }).bind(this));
+        this.img.addEventListener('load', this.onImageLoad);
       }
     }
   }
 
   componentWillUnmount() {
-    window.removeEventListener(this.onImageLoad);
+    this.img.removeEventListener('load', this.onImageLoad);
     this.wrapper = null;
+  }
+
+  onImageLoad = () => {
+    this.initGrade();
   }
 
   render() {
