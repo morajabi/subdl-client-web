@@ -48,7 +48,7 @@ const Nav = styled.div`
 `;
 
 const RightNav = styled(Nav)`
-  margin-left: 30px;  
+  margin-left: 30px;
   justify-content: flex-start;
   align-items: flex-end;
 
@@ -67,14 +67,15 @@ const NavItem = styled.a`
   margin: 0 15px 0 15px;
   font-size: 15px;
   letter-spacing: .5px;
-  ${props => props.currentColor ? css`
+  cursor: pointer;
+
+  ${p => p.currentColor ? css`
     text-shadow: 1px 1px 0px rgba(122, 122, 122, 0.7);
     color: currentColor;
   ` : css`
     text-shadow: 1px 1px 0px #fff;
     color: ${props => props.blue ? '#2F80ED' : '#333'};
   `}
-    cursor: pointer;
 
   &:first-child {
     margin-left: 0;
@@ -102,7 +103,7 @@ const NavSeparator = styled.span`
 
 /**
  * Top Navigation
- * @param {boolean} searchBar - Wheather show the search bar in center 
+ * @param {boolean} searchBar - Wheather show the search bar in center
  */
 const TopNav = ({ searchBar = false, currentColor = false }: { searchBar: boolean, currentColor?: boolean }) => {
   return (
