@@ -14,6 +14,7 @@ import winterSoldierPoster from '../assets/images/demo/winter-soldier-poster.jpg
 import theBlacklistPoster from '../assets/images/demo/the-blacklist-poster.jpg';
 import despicableMe3Poster from '../assets/images/demo/despicable-me-3-poster.jpg';
 import doctorStrangePoster from '../assets/images/demo/doctor-strange-poster.jpg';
+import guardiansPoster from '../assets/images/demo/guardians-2-poster.jpg';
 
 const smallMedia = media.to.small;
 
@@ -238,7 +239,7 @@ const Subtitles = (props: any) => (
         <Movie>
           <MovieLeft>
             <Poster
-              src={doctorStrangePoster}
+              src={guardiansPoster}
               data-grade={true}
             />
           </MovieLeft>
