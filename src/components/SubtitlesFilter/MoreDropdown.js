@@ -1,10 +1,12 @@
 /* @flow */
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import lighten from 'polished/lib/color/lighten';
 
 import Downshift from 'downshift';
 import MoreIcon from './MoreIcon';
 import { ResetedButton } from '../Button';
+import { colors } from '../../utils/styleUtils';
 
 const Wrapper = styled.div`
   position: relative;
@@ -36,7 +38,7 @@ const Option = styled(ResetedButton)`
   cursor: pointer;
   padding: 0 5px 0 8px;
 
-  background: ${p => p.selected ? '' : p.highlight ? '#eee' : 'none' }
+  background: ${p => p.selected ? lighten(0.2, colors.PRIMARY) : p.highlight ? '#eee' : 'none' }
 `;
 
 const items = ['asdasd', 'as', 's'];
