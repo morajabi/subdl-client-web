@@ -96,11 +96,13 @@
     "react-overdrive": "^0.0.5",
     "react-redux": "^5.0.4",
     "react-router-dom": "^4.1.0",
+    "recompose": "^0.25.0",
     "redux": "^3.6.0",
     "redux-logger": "^3.0.1",
     "redux-saga": "^0.15.0",
     "reselect": "^3.0.0",
     "styled-components": "^2.1.1",
+    "styled-media-query": "^2.0.1",
     "uuid": "^3.0.1"
   }
 }

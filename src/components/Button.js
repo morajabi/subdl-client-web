@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 export const ResetedButton: any = styled.button`
   border: none;
   background: none;
+  font-size: inherit;
 `;
 
 const BaseButton = styled(ResetedButton)`
