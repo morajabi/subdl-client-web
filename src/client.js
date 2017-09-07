@@ -24,11 +24,11 @@ const store = createStore(apolloClient);
 
 const render = Component => {
   ReactDOM.render(
-    <AppContainer>
-      <ApolloProvider store={store} client={apolloClient}>
-        <App />
-      </ApolloProvider>
-    </AppContainer>,
+    <ApolloProvider store={store} client={apolloClient}>
+      <AppContainer>
+        <Component />
+      </AppContainer>
+    </ApolloProvider>,
     document.getElementById('root')
   )
 };

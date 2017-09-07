@@ -1,14 +1,15 @@
 /* @flow */
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { colors, media } from '../utils/styleUtils';
 import { convert as convertColor } from 'css-color-function';
 
+import { colors, media } from '../utils/styleUtils';
 import Container from './Container';
 import TopNav from './TopNav';
 import Cover from './Cover';
 import Button from './Button';
 import Seasons from './Seasons';
+import FilterBar from './FilterBar';
 
 import winterSoldierPoster from '../assets/images/demo/winter-soldier-poster.jpg';
 import theBlacklistPoster from '../assets/images/demo/the-blacklist-poster.jpg';
@@ -19,7 +20,7 @@ import guardiansPoster from '../assets/images/demo/guardians-2-poster.jpg';
 const smallMedia = media.to.small;
 
 const PaddedContainer = styled(Container)`
-  padding-top: 95px;
+  padding-top: ${p => p.lessPad ? '80px' : '95px'};
 `;
 
 const MovieCover = styled(Cover)`
@@ -218,7 +219,6 @@ const WishlistButton = styled(ActionButton)`
   }
 `;
 
-
 const SeasonSection = styled(Seasons)`
   margin: 40px 0 0 0;
   background: rgba(255, 255, 255, 0.1);
@@ -286,10 +286,13 @@ const Subtitles = (props: any) => (
           </MovieRight>
         </Movie>
       </PaddedContainer>
-
       <SeasonSection />
-
     </MovieCover>
+
+    <PaddedContainer lessPad>
+      <FilterBar />
+    </PaddedContainer>
+
   </div>
 );
 

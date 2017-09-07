@@ -14,10 +14,11 @@ const Wrapper = styled.div`
 `;
 
 const Trigger = styled(ResetedButton)`
-  width: 40px;
+  width: 35px;
   height: 23px;
   display: inline-block;
   cursor: pointer;
+  color: #999;
 
   &:focus {
     outline: none;

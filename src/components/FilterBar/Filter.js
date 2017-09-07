@@ -1,10 +1,10 @@
-/* @flow */
 import React, { PureComponent } from 'react';
 import styled, { css } from 'styled-components';
 import darken from 'polished/lib/color/darken';
 import map from 'lodash/map';
 import v4 from 'uuid/v4';
 import Downshift from 'downshift';
+import { mapProps } from 'recompose';
 
 import { grey, darkGrey, lightBlue } from '../../utils/colors';
 import { ResetedButton } from '../Button';
@@ -13,23 +13,24 @@ import MoreDropdown from './MoreDropdown';
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  font-size: 14px;
 `;
 
 const Label = styled.div`
   display: inline-block;
-  margin-right: 12px;
+  margin-right: 9px;
 
   font-weight: 600;
 `;
 
 const Option = styled(ResetedButton)`
   display: inline-block;
-  height: 25px;
-  margin-right: 7px;
-  padding: 0 8px;
+  height: 27px;
+  line-height: 27px;
+  margin-right: 5px;
+  padding: 0 6px;
 
-  font-size: .9em;
-  line-height: 25px;
+  font-size: 1em;
   cursor: pointer;
   background: ${grey};
   color: ${darkGrey};
@@ -55,18 +56,14 @@ const Option = styled(ResetedButton)`
   `}
 `;
 
-const items: string[] = [
-  '480px',
-  '720p-1080p',
+const mItems = [
+  '1080p',
+  '720p',
+  '480p',
   '4K',
-  '8K',
-  '12K',
-];
-const limit = 3;
-const all = 'all';
+]
 
-
-const Filter = ({ className, ...props}) => (
+const Filter = ({ className, label, items, limit, all, ...props}) => (
   <Downshift {...props} defaultSelectedItem={all}>
     {({
       getRootProps,
@@ -103,7 +100,7 @@ const Filter = ({ className, ...props}) => (
           className={className}
           {...getRootProps({ refKey: 'innerRef' })}
         >
-          <Label>quality</Label>
+          <Label>{label}</Label>
 
           <Option
             {...getItemProps({ item: all })}
@@ -134,4 +131,9 @@ const Filter = ({ className, ...props}) => (
   </Downshift>
 );
 
-export default Filter;
+export default mapProps(props => ({
+  label: 'res',
+  items: mItems,
+  limit: 3,
+  all: 'all',
+}))(Filter);

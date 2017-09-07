@@ -21,6 +21,8 @@ const IconWrapper = styled.div`
   text-align: center;
   display: flex;
   align-items: center;
+  margin-right: 20px;
+  color: #666;
 
   ${mobile(css`
     flex: 1 1 100%;
@@ -39,13 +41,40 @@ const PaddedFilter = styled(Filter)`
   `)}
 `;
 
+const FiltersOuter = styled.div`
+  flex: 1 0 auto;
+  display: flex;
+  justify-content: center;
+`;
+
+const FilterWrapper = styled.div`
+  flex: 1 0 33.32%;
+  display: flex;
+  justify-content: ${p => p.justifyContent || 'center'};
+
+  ${mobile(css`
+    flex: 1 0 100%;
+    margin-bottom: 15px;
+  `)}
+`;
+
 const FilterBar = props => (
   <Wrapper>
     <Icon />
 
-    <PaddedFilter />
-    <PaddedFilter />
-    <PaddedFilter />
+    <FiltersOuter>
+      <FilterWrapper justifyContent="flex-start">
+          <PaddedFilter />
+        </FilterWrapper>
+
+      <FilterWrapper justifyContent="center">
+        <PaddedFilter />
+      </FilterWrapper>
+
+      <FilterWrapper justifyContent="flex-end">
+        <PaddedFilter />
+      </FilterWrapper>
+    </FiltersOuter>
   </Wrapper>
 );
 
