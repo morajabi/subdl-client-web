@@ -18,7 +18,6 @@ const Wrapper = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  text-align: center;
   display: flex;
   align-items: center;
   margin-right: 20px;
@@ -26,7 +25,8 @@ const IconWrapper = styled.div`
 
   ${mobile(css`
     flex: 1 1 100%;
-    padding: 10px 0;
+    padding-bottom: 15px;
+    justify-content: center;
   `)}
 
   path {
@@ -44,7 +44,13 @@ const PaddedFilter = styled(Filter)`
 const FiltersOuter = styled.div`
   flex: 1 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+
+  ${mobile(css`
+    flex: 1 0 100%;
+    margin-bottom: 15px;
+  `)}
 `;
 
 const FilterWrapper = styled.div`
@@ -55,6 +61,7 @@ const FilterWrapper = styled.div`
   ${mobile(css`
     flex: 1 0 100%;
     margin-bottom: 15px;
+    justify-content: center;
   `)}
 `;
 
