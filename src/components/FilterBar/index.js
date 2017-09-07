@@ -48,7 +48,7 @@ const FiltersOuter = styled.div`
 `;
 
 const FilterWrapper = styled.div`
-  flex: 1 0 33.32%;
+  flex: 1 0 33.33%;
   display: flex;
   justify-content: ${p => p.justifyContent || 'center'};
 
