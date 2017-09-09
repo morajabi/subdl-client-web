@@ -11,6 +11,7 @@ import Cover from './Cover';
 import Button from './Button';
 import Seasons from './Seasons';
 import FilterBar from './FilterBar';
+import SubtitlesTable from './SubtitlesTable';
 
 import winterSoldierPoster from '../assets/images/demo/winter-soldier-poster.jpg';
 import theBlacklistPoster from '../assets/images/demo/the-blacklist-poster.jpg';
@@ -296,6 +297,7 @@ const Subtitles = (props: any) => (
 
     <PaddedContainer lessPad>
       <FilterBar />
+      <SubtitlesTable />
     </PaddedContainer>
 
   </div>
