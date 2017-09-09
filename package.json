@@ -19,7 +19,8 @@
   },
   "lint-staged": {
     "{src,__{tests,mocks}__}/!(components|containers)/*.js": [
-      "yarn run prettier:all",
+      "prettier:all",
+      "test",
       "git add"
     ]
   },
