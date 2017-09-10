@@ -5,8 +5,12 @@ html(lang="en")
     meta(http-equiv="X-UA-Compatible", content="ie=edge")
     title Subdl • Download subtitles without the bad parts
 
+    | !{head}
+
     link(href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,700" rel="stylesheet")
 
   body
 
-    div#root
+    div#root !{output}
+
+    | !{body}

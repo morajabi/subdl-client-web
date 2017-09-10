@@ -15,46 +15,6 @@ module.exports = (env = {}) => {
     context: resolve(__dirname, './src'),
 
 
-    entry: {
-      app: (() => {
-        let app = ['./client.js'];
-
-        if(isProduction) {
-          // production plugins
-        } else {
-          // development plugins
-          app = [
-            'react-hot-loader/patch',
-            // activate HMR for React
-
-            `webpack-dev-server/client?http://0.0.0.0:${port}`,
-            // bundle the client for webpack-dev-server
-            // and connect to the provided endpoint
-
-            'webpack/hot/only-dev-server',
-            // bundle the client for hot reloading
-            // only- means to only hot reload for successful updates
-
-            ...app
-          ];
-        }
-
-        return app;
-      })(),
-    },
-
-
-    output: {
-      filename: '[name].bundle.js',
-      // the output bundle
-
-      path: resolve(__dirname, './dist'),
-
-      publicPath: '/'
-      // necessary for HMR to know where to load the hot update chunks
-    },
-
-
     devtool: (() => {
       if (isProduction) return 'hidden-source-map';
       else return 'eval-source-map';
@@ -112,27 +72,6 @@ module.exports = (env = {}) => {
       ]
     },
 
-    devServer: (() => {
-      if (isProduction) {
-        return {};
-      } else {
-        return {
-          contentBase: resolve(__dirname, 'dist'),
-          // match the output path
-
-          publicPath: '/',
-          // match the output `publicPath`
-
-          port: port,
-          hot: true,
-
-          historyApiFallback: true,
-          compress: true,
-          open: true,
-        }
-      }
-    })(),
-
 
     plugins: (() => {
 
@@ -178,12 +117,109 @@ module.exports = (env = {}) => {
         ];
       }
 
-
       return plugins;
     })(),
 
   };
 
 
-  return config;
+  // client specific config
+  const clientConfig = {
+    entry: {
+      app: (() => {
+        let app = ['./client.js'];
+
+        if(isProduction) {
+          // production plugins
+        } else {
+          // development plugins
+          app = [
+            'react-hot-loader/patch',
+            // activate HMR for React
+
+            `webpack-dev-server/client?http://0.0.0.0:${port}`,
+            // bundle the client for webpack-dev-server
+            // and connect to the provided endpoint
+
+            'webpack/hot/only-dev-server',
+            // bundle the client for hot reloading
+            // only- means to only hot reload for successful updates
+
+            ...app
+          ];
+        }
+
+        return app;
+      })(),
+    },
+
+    output: {
+      filename: '[name].bundle.js',
+      // the output bundle
+
+      path: resolve(__dirname, './dist/public'),
+
+      publicPath: '/public/'
+      // necessary for HMR to know where to load the hot update chunks
+    },
+
+    devServer: (() => {
+      if (isProduction) {
+        return {};
+      } else {
+        return {
+          contentBase: resolve(__dirname, 'dist'),
+          // match the output path
+
+          publicPath: '/public/',
+          // match the output `publicPath`
+
+          port: port,
+          hot: true,
+
+          historyApiFallback: true,
+          compress: true,
+          open: true,
+        }
+      }
+    })(),
+  };
+
+
+  // server specific config
+  const serverConfig = {
+    entry: {
+      app: ['./server.js'],
+    },
+
+    output: {
+      filename: 'server.js',
+      // the output bundle
+
+      path: resolve(__dirname, './dist'),
+
+      publicPath: '/public/',
+      // necessary for HMR to know where to load the hot update chunks
+
+      libraryTarget: 'commonjs2',
+    },
+
+    target: 'node',
+
+    externals: /^[a-z\-0-9]+$/,
+  };
+
+  return [
+    // client
+    {
+      ...config,
+      ...clientConfig,
+    },
+
+    // server
+    {
+      ...config,
+      ...serverConfig,
+    }
+  ];
 }
