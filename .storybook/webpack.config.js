@@ -10,9 +10,13 @@ module.exports = {
   plugins: [
     // your custom plugins
   ],
+
   module: {
     rules: [
-      // add your custom rules.
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
     ],
   },
 };

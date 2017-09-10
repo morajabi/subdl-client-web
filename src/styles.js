@@ -1,6 +1,5 @@
 /* @flow */
 import styled, { injectGlobal } from 'styled-components';
-import 'normalize.css/normalize.css';
 import { colors } from './utils/styleUtils';
 
 // /* roboto - normal - latin */

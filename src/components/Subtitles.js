@@ -1,24 +1,32 @@
 /* @flow */
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import { colors, media } from '../utils/styleUtils';
+import styled, { css } from 'styled-components';
 import { convert as convertColor } from 'css-color-function';
 
+import { colors, media } from '../utils/styleUtils';
+import { mobile } from '../utils/media';
 import Container from './Container';
 import TopNav from './TopNav';
 import Cover from './Cover';
 import Button from './Button';
 import Seasons from './Seasons';
+import FilterBar from './FilterBar';
+import SubtitlesTable from './SubtitlesTable';
 
 import winterSoldierPoster from '../assets/images/demo/winter-soldier-poster.jpg';
 import theBlacklistPoster from '../assets/images/demo/the-blacklist-poster.jpg';
 import despicableMe3Poster from '../assets/images/demo/despicable-me-3-poster.jpg';
 import doctorStrangePoster from '../assets/images/demo/doctor-strange-poster.jpg';
+import guardiansPoster from '../assets/images/demo/guardians-2-poster.jpg';
 
-const smallMedia = media.to.small;
+const smallMedia = media.to.medium;
 
 const PaddedContainer = styled(Container)`
-  padding-top: 95px;
+  padding-top: ${p => p.lessPad ? '80px' : '95px'};
+
+  ${mobile(css`
+    padding-top: ${p => p.lessPad ? '35px' : '95px'};
+  `)}
 `;
 
 const MovieCover = styled(Cover)`
@@ -32,9 +40,9 @@ const Poster = styled.img`
   display: block;
   box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
 
-  ${smallMedia`
+  ${mobile(css`
     max-width: 120px;
-  `}
+  `)}
 `;
 
 const Movie = styled.div`
@@ -42,11 +50,11 @@ const Movie = styled.div`
   display: flex;
   justify-content: flex-start;
 
-  ${smallMedia`
+  ${mobile(css`
     flex-direction: column;
     align-items: center;
     text-align: center;
-  `}
+  `)}
 `;
 
 const MovieLeft = styled.div`
@@ -57,11 +65,11 @@ const MovieCenter = styled.div`
   flex: 1 1 auto;
   padding: 0 0 0 40px;
 
-  ${smallMedia`
+  ${mobile(css`
     padding-left: 0;
     margin-top: 15px;
     margin-bottom: 12px;
-  `}
+  `)}
 `;
 
 const MovieRight = styled.div`
@@ -71,11 +79,11 @@ const MovieRight = styled.div`
   justify-content: flex-end;
   padding: 0 0 0 30px;
 
-  ${smallMedia`
+  ${mobile(css`
     padding-left: 0;
     flex-direction: row;
     justify-content: space-between;
-  `}
+  `)}
 `;
 
 const MovieTitle = styled.h1`
@@ -86,9 +94,9 @@ const MovieTitle = styled.h1`
   font-weight: bold;
   letter-spacing: .8px;
 
-  ${smallMedia`
+  ${mobile(css`
     font-size: 28px;
-  `}
+  `)}
 `;
 
 const MovieYear = styled.span`
@@ -99,9 +107,9 @@ const MovieYear = styled.span`
 `;
 
 const MovieDetails = styled.div`
-  ${smallMedia`
+  ${mobile(css`
     display: none;
-  `}
+  `)}
 `;
 
 const Pilot = styled.p`
@@ -199,9 +207,9 @@ const AmazonButton = styled(ActionButton)`
   background: ${colors.AMAZON};
   color: #fff;
 
-  ${smallMedia`
+  ${mobile(css`
     margin-top: 0;
-  `}
+  `)}
 
   &:hover {
     background: ${convertColor(`color(${colors.AMAZON} shade(7%))`)};
@@ -216,7 +224,6 @@ const WishlistButton = styled(ActionButton)`
     background: ${convertColor(`color(${colors.SECONDARY} shade(7%))`)};
   }
 `;
-
 
 const SeasonSection = styled(Seasons)`
   margin: 40px 0 0 0;
@@ -238,7 +245,7 @@ const Subtitles = (props: any) => (
         <Movie>
           <MovieLeft>
             <Poster
-              src={doctorStrangePoster}
+              src={guardiansPoster}
               data-grade={true}
             />
           </MovieLeft>
@@ -285,10 +292,14 @@ const Subtitles = (props: any) => (
           </MovieRight>
         </Movie>
       </PaddedContainer>
-
       <SeasonSection />
-
     </MovieCover>
+
+    <PaddedContainer lessPad>
+      <FilterBar />
+      <SubtitlesTable />
+    </PaddedContainer>
+
   </div>
 );
 

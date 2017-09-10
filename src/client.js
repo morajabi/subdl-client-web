@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, createBatchingNetworkInterface } from 'react-apollo';
 import { AppContainer } from 'react-hot-loader';
 import createStore from './store';
 
-// global styles
-import './styles';
+// add normalize.css
+import 'normalize.css/normalize.css';
 
 // components
 import App from './components/App';
@@ -24,11 +25,13 @@ const store = createStore(apolloClient);
 
 const render = Component => {
   ReactDOM.render(
-    <AppContainer>
-      <ApolloProvider store={store} client={apolloClient}>
-        <App />
-      </ApolloProvider>
-    </AppContainer>,
+    <ApolloProvider store={store} client={apolloClient}>
+      <AppContainer>
+        <Router>
+          <Component />
+        </Router>
+      </AppContainer>
+    </ApolloProvider>,
     document.getElementById('root')
   )
 };

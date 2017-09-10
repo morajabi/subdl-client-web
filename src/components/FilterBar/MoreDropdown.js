@@ -1,10 +1,12 @@
 /* @flow */
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
+import lighten from 'polished/lib/color/lighten';
 
 import Downshift from 'downshift';
 import MoreIcon from './MoreIcon';
 import { ResetedButton } from '../Button';
+import { lightBlue } from '../../utils/colors';
 
 const Wrapper = styled.div`
   position: relative;
@@ -12,15 +14,23 @@ const Wrapper = styled.div`
 `;
 
 const Trigger = styled(ResetedButton)`
-  width: 40px;
+  width: 35px;
   height: 23px;
   display: inline-block;
   cursor: pointer;
+  color: #999;
+
+  &:focus {
+    outline: none;
+    background: #f2f2f2;
+  }
 `;
 
 const OptionsBox = styled.div`
   width: auto;
   position: absolute;
+  z-index: 5;
+
   box-shadow: 0 2px 4px .5px rgba(0, 0, 0, .1);
   background: #fff;
   border: 1px solid #f2f2f2;
@@ -28,21 +38,26 @@ const OptionsBox = styled.div`
 
 const Option = styled(ResetedButton)`
   width: 100%;
-  min-width: 80px;
+  min-width: 100px;
   display: block;
   text-align: left;
-  font-size: .9em;
-  line-height: 1.7;
+  font-size: 1em;
+  line-height: 1.6;
   cursor: pointer;
-  padding: 0 5px 0 8px;
+  padding: 3px 8px 3px 10px;
+  outline: none;
 
-  background: ${p => p.selected ? '' : p.highlight ? '#eee' : 'none' }
+  background: ${p =>
+      p.selected ? lightBlue :
+      p.highlight ? '#eee' : 'none'
+    };
+  color: ${p => p.selected ? 'white' : 'inherit'};
 `;
 
-const items = ['asdasd', 'as', 's'];
+const it = ['asdasd', 'as', 's'];
 
-const FilterMoreDropdown = ({ ...props }: any) => (
-  <Downshift>
+const FilterMoreDropdown = ({ items = it, ...props }: any) => (
+  <Downshift {...props}>
     {({
       getItemProps,
       isOpen,
