@@ -20,7 +20,7 @@ import createStore from './store';
 import App from './components/App';
 
 const app = express();
-app.use('/public', express.static(path.resolve('dist/public')));
+app.use('/', express.static(path.resolve('dist/public')));
 
 app.get('*', (req, res) => {
 
@@ -59,7 +59,7 @@ app.get('*', (req, res) => {
   const locals = {
     output,
     head: styleTags,
-    body: `<script src="/public/app.bundle.js"></script>`
+    body: `<script src="/app.bundle.js"></script>`
   };
   const html = template(locals);
 

@@ -159,7 +159,7 @@ module.exports = (env = {}) => {
 
       path: resolve(__dirname, './dist/public'),
 
-      publicPath: '/public/'
+      publicPath: '/'
       // necessary for HMR to know where to load the hot update chunks
     },
 
@@ -171,7 +171,7 @@ module.exports = (env = {}) => {
           contentBase: resolve(__dirname, 'dist'),
           // match the output path
 
-          publicPath: '/public/',
+          publicPath: '/',
           // match the output `publicPath`
 
           port: port,
@@ -198,7 +198,7 @@ module.exports = (env = {}) => {
 
       path: resolve(__dirname, './dist'),
 
-      publicPath: '/public/',
+      publicPath: '/',
       // necessary for HMR to know where to load the hot update chunks
 
       libraryTarget: 'commonjs2',
