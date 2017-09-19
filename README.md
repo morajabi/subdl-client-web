@@ -36,6 +36,7 @@ Head to your browser and open [`localhost:3000`](http://localhost:3000).
 After every change, write tests for the change and run tests with following command to ensure everything works as expected before any commit or PR:
 ```
 yarn test
+
 ```
 
 
