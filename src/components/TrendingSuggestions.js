@@ -56,7 +56,7 @@ const MoreLink = styled.a`
 const TrendingSuggestions = (props: any) => (
   <Wrapper {...props}>
     <Icon />
-    <Title>trending in India: </Title>
+    <Title>trending in Germany: </Title>
     <span>
       <MovieLink href="/subtitles">Moana</MovieLink>
       <MovieLink href="/subtitles">Rogue One</MovieLink>
