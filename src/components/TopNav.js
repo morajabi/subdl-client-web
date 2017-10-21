@@ -111,7 +111,7 @@ const TopNav = ({ searchBar = false, currentColor = false }: { searchBar: boolea
       <FlexWrapper>
 
         <RightWrapper>
-          <Logo href="https://subdl.com">
+          <Logo href="/">
             <img src={logoType} alt="Subdl: Download subtitle for any movie in any language" />
           </Logo>
           <RightNav>
