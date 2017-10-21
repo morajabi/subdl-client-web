@@ -58,9 +58,9 @@ const TrendingSuggestions = (props: any) => (
     <Icon />
     <Title>trending in India: </Title>
     <span>
-      <MovieLink href="/">Moana</MovieLink>
-      <MovieLink href="/">Rogue One</MovieLink>
-      <MovieLink href="/">Force Awakens</MovieLink>
+      <MovieLink href="/subtitles">Moana</MovieLink>
+      <MovieLink href="/subtitles">Rogue One</MovieLink>
+      <MovieLink href="/subtitles">Force Awakens</MovieLink>
     </span>
     <MoreLink href="/">discover more →</MoreLink>
   </Wrapper>
