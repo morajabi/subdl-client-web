@@ -120,7 +120,7 @@ class Search extends PureComponent<Props> {
               <SearchDescription>All media items matching your query:</SearchDescription>
               <MovieList>
                 {movies.map(mi => (
-                  <MovieRow to="/">
+                  <MovieRow to="/subtitles">
                     <MovieItemWithPoster
                       title={mi.title}
                       year={mi.year}
